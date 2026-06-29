@@ -87,7 +87,9 @@
         /* --- 📱 Play Store Style Screenshot Slots Section --- */
         .screenshot-divider { border: 0; height: 1px; background: #e1e4e8; margin: 25px 0 15px 0; }
         .screenshot-container { display: flex; gap: 12px; overflow-x: auto; padding: 5px 2px 15px 2px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+        /* Hide scrollbar for Chrome, Safari and Opera */
         .screenshot-container::-webkit-scrollbar { display: none; }
+        /* Hide scrollbar for IE, Edge and Firefox */
         .screenshot-container { -ms-overflow-style: none; scrollbar-width: none; }
         
         .screenshot-slot { flex: 0 0 160px; height: 280px; background: #eaeaea; border-radius: 10px; border: 1px dashed #b5b5b5; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; scroll-snap-align: start; }
@@ -121,21 +123,21 @@
             .meta-item { min-width: 75px; }
             
             .download-btn { width: 100%; box-sizing: border-box; }
-            .screenshot-slot { flex: 0 0 140px; height: 245px; }
+            .screenshot-slot { flex: 0 0 140px; height: 245px; } /* Slightly smaller slots on small screens */
         }
     </style>
 </head>
 <body>
 
     <div id="splash-screen">
-        <img src="https://raw.githubusercontent.com/mrchiefx12-wq/Chief-Hub/main/assets/my_logo.png.png" alt="Chief Logo">
-        <div class="welcome-msg">Chief Animation</div>
+        <img src="my_logo.png.png" alt="Chief Logo">
+        <div class="welcome-msg"></div>
     </div>
 
     <div id="main-content">
         <nav class="navbar">
             <a href="#" class="logo" onclick="switchTab('home')">
-                <img src="https://raw.githubusercontent.com/mrchiefx12-wq/Chief-Hub/main/assets/my_logo.png.png" alt="Bigger Corner Logo"> 
+                <img src="my_logo.png.png" alt="Bigger Corner Logo"> 
                 Chief <span>Hub</span>
             </a>
             <ul class="nav-links">
@@ -149,10 +151,10 @@
         <div class="container">
 
             <div id="content-home" class="tab-content active">
-                <div class="welcome-text">👋 Welcome to Chief Animation Portal</div>
+                <div class="welcome-text">👋 Welcome to Chief Hub</div>
                 
                 <div class="app-card">
-                    <img src="https://raw.githubusercontent.com/mrchiefx12-wq/Chief-Hub/main/assets/my_logo.png.png" class="app-logo" alt="Chief Hub Logo">
+                    <img src="logo.png" class="app-logo" alt="Chief Hub Logo">
                     
                     <div class="app-info">
                         <h1 class="app-title">Chief</h1>
@@ -179,7 +181,7 @@
                             </div>
                         </div>
                         
-                        <a href="YOUR_APK_DOWNLOAD_LINK_HERE" class="download-btn" target="_blank">
+                        <a href="https://github.com/mrchiefx12-wq/Chief-Hub/raw/refs/heads/main/Chief.apk" class="download-btn" target="_blank">
                             📥 Download APK
                         </a>
                     </div>
