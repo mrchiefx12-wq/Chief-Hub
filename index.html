@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chief Hub - Official App Download</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3940256099942544" crossorigin="anonymous"></script>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
         body { background-color: #f6f8fa; color: #333; overflow-x: hidden; }
@@ -68,13 +67,13 @@
             align-items: center; 
             gap: 8px; 
             text-decoration: none; 
-            font-size: 26px; /* Increased Text Size */
+            font-size: 26px; 
             font-weight: 800; 
             color: #111;
             order: 2; 
         }
         .logo img { 
-            width: 38px; /* Increased Icon Size to perfectly match the new bold 'C' */
+            width: 38px; 
             height: 38px; 
             object-fit: contain; 
             display: block;
@@ -200,8 +199,20 @@
         .description-section ul li::before { content: "•"; color: #24a148; font-weight: bold; font-size: 18px; position: absolute; left: 0; top: -2px; }
         .description-section h3 { font-size: 15px; font-weight: 700; color: #111; margin-top: 20px; margin-bottom: 8px; }
 
-        /* Banner Ad Container */
-        .ad-space { margin-top: 25px; width: 100%; display: flex; justify-content: center; background: #fff; padding: 10px; border-radius: 8px; border: 1px solid #e1e4e8; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        /* Optimized Banner Ad Container for 300x250 Adsterra format */
+        .ad-space { 
+            margin-top: 25px; 
+            width: 100%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            background: #fff; 
+            padding: 15px; 
+            border-radius: 12px; 
+            border: 1px solid #e1e4e8; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            min-height: 280px;
+        }
 
         .fragment-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #e1e4e8; }
         .fragment-card h2 { margin-bottom: 10px; font-size: 18px; color: #111; }
@@ -225,7 +236,7 @@
             .screenshot-slot { flex: 0 0 140px; height: 245px; }
             .playstore-lightbox-content { max-width: 85%; max-height: 75vh; }
             .logo { font-size: 22px; gap: 6px; }
-            .logo img { width: 32px; height: 32px; } /* Fits beautifully on small mobile widths */
+            .logo img { width: 32px; height: 32px; }
         }
     </style>
 </head>
@@ -238,20 +249,17 @@
 
     <div id="main-content">
         <nav class="navbar">
-            <!-- Logo in Corner (Top Right) - Re-scaled Bold View -->
             <a href="#" class="logo" onclick="switchTab('home')">
                 <img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/my_logo.png.png?raw=true" alt="Corner Logo"> 
                 Chief <span>Hub</span>
             </a>
             
-            <!-- 3-Line Menu Trigger (Top Left) -->
             <button class="menu-toggle" onclick="toggleMenu(event)">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
-            <!-- Navigation Links inside Sidebar Wrapper -->
             <div id="nav-menu-wrapper" class="nav-menu-wrapper" onclick="toggleMenu(event)">
                 <ul class="nav-links" onclick="event.stopPropagation()">
                     <li><a id="tab-home" class="active" onclick="switchTab('home')">Home</a></li>
@@ -282,7 +290,6 @@
 
                 <hr class="screenshot-divider">
 
-                <!-- Screenshots Sections -->
                 <div class="screenshot-container">
                     <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/mrchiefx12-wq/Chief-Hub/refs/heads/main/assets/1st_image.png" alt="Slot 1"></div>
                     <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/WhatsApp%20Image%202026-06-30%20at%203.17.25%20PM.jpeg?raw=true" alt="Slot 2"></div>
@@ -306,45 +313,43 @@
                     <p>Simply click on the "Download APK" button above, install the application, log in using your credentials, and start designing your very first custom luxury timepiece today.</p>
                 </div>
 
+                <!-- Your Live Adsterra Ad Code Applied Below -->
                 <div class="ad-space">
-                    <ins class="adsbygoogle"
-                         style="display:block; min-width:300px; max-width:728px; width:100%; height:90px"
-                         data-ad-client="ca-pub-3940256099942544"
-                         data-ad-slot="6300978111"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
-                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                    <script>
+                        atOptions = {
+                            'key' : '05868cf5aa55fd69f6a6b81ad5d2e719',
+                            'format' : 'iframe',
+                            'height' : 250,
+                            'width' : 300,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/05868cf5aa55fd69f6a6b81ad5d2e719/invoke.js"></script>
                 </div>
             </div>
 
-            <!-- Support Tab Area -->
             <div id="content-support" class="tab-content">
                 <div class="fragment-card">
                     <h2>Customer Support</h2>
                     <div class="embed-placeholder-box">
-                        <!-- यहाँ पर अपना CUSTOM SUPPORT EMBED CODE पेस्ट करें -->
                         📥 यहाँ आपके CUSTOM SUPPORT FORM का कोड आयेगा
                     </div>
                 </div>
             </div>
             
-            <!-- Voucher Tab Area -->
             <div id="content-voucher" class="tab-content">
                 <div class="fragment-card">
                     <h2>Vouchers & Offers</h2>
                     <div class="embed-placeholder-box">
-                        <!-- यहाँ पर अपना CUSTOM VOUCHER EMBED CODE पेस्ट करें -->
                         🎫 यहाँ आपके VOUCHER SYSTEM का कोड आयेगा
                     </div>
                 </div>
             </div>
             
-            <!-- Help Tab Area -->
             <div id="content-help" class="tab-content">
                 <div class="fragment-card">
                     <h2>Help & FAQ</h2>
                     <div class="embed-placeholder-box">
-                        <!-- यहाँ पर अपना CUSTOM FAQ EMBED CODE पेस्ट करें -->
                         ❓ यहाँ आपके FAQ / HELP SYSTEM का कोड आयेगा
                     </div>
                 </div>
@@ -352,7 +357,6 @@
         </div>
     </div>
 
-    <!-- PlayStore Professional Lightbox Overlay -->
     <div id="playstore-lightbox" class="playstore-lightbox" onclick="closeLightbox()">
         <img id="lightbox-img" class="playstore-lightbox-content" src="" alt="Preview">
     </div>
@@ -369,7 +373,6 @@
             }, 2000); 
         });
         
-        // Toggle Sidebar Menu Function
         function toggleMenu(event) {
             event.stopPropagation();
             const menuWrapper = document.getElementById('nav-menu-wrapper');
@@ -383,11 +386,9 @@
             document.getElementById('tab-' + tabName).classList.add('active'); 
             document.getElementById('content-' + tabName).classList.add('active'); 
             
-            // Automatically close menu when an option is clicked
             document.getElementById('nav-menu-wrapper').classList.remove('open');
         }
 
-        /* PlayStore Lightbox Preview Functions */
         function openLightbox(element) {
             const imgSrc = element.querySelector('img').src;
             const lightbox = document.getElementById('playstore-lightbox');
