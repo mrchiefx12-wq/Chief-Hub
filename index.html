@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chief Hub - Official App Download</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3940256099942544" crossorigin="anonymous"></script>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
         body { background-color: #f6f8fa; color: #333; overflow-x: hidden; }
@@ -76,6 +76,7 @@
         
         /* Meta Grid Structure */
         .meta-grid { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; padding: 10px 0; }
+        .meta-grid { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; padding: 10px 0; }
         .meta-item { display: flex; flex-direction: column; font-size: 12px; color: #666; min-width: 65px; }
         .meta-value { font-size: 14px; font-weight: 600; color: #222; margin-bottom: 1px; }
         .secure-badge { color: #24a148; display: flex; align-items: center; gap: 2px; }
@@ -84,17 +85,13 @@
         .download-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #24a148; color: #fff; padding: 12px 30px; border-radius: 30px; font-size: 15px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(36,161,72,0.2); transition: background 0.2s; width: auto; text-align: center; }
         .download-btn:hover { background: #1e873b; }
 
-        /* --- 📱 Play Store Style Screenshot Slots Section --- */
+        /* Screenshot Slots */
         .screenshot-divider { border: 0; height: 1px; background: #e1e4e8; margin: 25px 0 15px 0; }
         .screenshot-container { display: flex; gap: 12px; overflow-x: auto; padding: 5px 2px 15px 2px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-        /* Hide scrollbar for Chrome, Safari and Opera */
         .screenshot-container::-webkit-scrollbar { display: none; }
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .screenshot-container { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        .screenshot-slot { flex: 0 0 160px; height: 280px; background: #eaeaea; border-radius: 10px; border: 1px dashed #b5b5b5; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; scroll-snap-align: start; }
+        .screenshot-slot { flex: 0 0 160px; height: 280px; background: #eaeaea; border-radius: 10px; border: 1px dashed #b5b5b5; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; scroll-snap-align: start; cursor: pointer; transition: transform 0.2s ease; }
+        .screenshot-slot:hover { transform: scale(1.02); }
         .screenshot-slot img { width: 100%; height: 100%; object-fit: cover; }
-        .screenshot-placeholder-text { font-size: 12px; color: #888; text-align: center; font-weight: 500; padding: 10px; pointer-events: none; }
 
         /* Professional Description Section */
         .description-section { background: #fff; border-radius: 12px; padding: 25px; margin-top: 25px; border: 1px solid #e1e4e8; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
@@ -111,19 +108,25 @@
         .fragment-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #e1e4e8; }
         .fragment-card h2 { margin-bottom: 10px; font-size: 18px; color: #111; }
 
-        /* 📱 RESPONSIVE MEDIA QUERIES */
+        /* Professional Embed Container Box */
+        .embed-placeholder-box { margin-top: 15px; padding: 20px; border: 2px dashed #24a148; background-color: #f4faf6; border-radius: 8px; text-align: center; color: #1e873b; font-weight: 500; font-size: 14px; }
+
+        /* PlayStore Like Lightbox (Preview) CSS */
+        .playstore-lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 10000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .playstore-lightbox.open { opacity: 1; visibility: visible; }
+        .playstore-lightbox-content { max-width: 90%; max-height: 85vh; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transform: scale(0.9); transition: transform 0.3s ease; object-fit: contain; }
+        .playstore-lightbox.open .playstore-lightbox-content { transform: scale(1); }
+
         @media (max-width: 600px) {
             .navbar { padding: 12px 15px; flex-direction: column; gap: 12px; text-align: center; }
             .nav-links { gap: 15px; }
-            
             .app-card { flex-direction: column; align-items: center; text-align: center; padding: 20px 15px; }
             .app-logo { width: 100px; height: 100px; }
-            
             .meta-grid { justify-content: center; gap: 12px; }
             .meta-item { min-width: 75px; }
-            
             .download-btn { width: 100%; box-sizing: border-box; }
-            .screenshot-slot { flex: 0 0 140px; height: 245px; } /* Slightly smaller slots on small screens */
+            .screenshot-slot { flex: 0 0 140px; height: 245px; }
+            .playstore-lightbox-content { max-width: 85%; max-height: 75vh; }
         }
     </style>
 </head>
@@ -149,78 +152,44 @@
         </nav>
 
         <div class="container">
-
             <div id="content-home" class="tab-content active">
                 <div class="welcome-text">👋 Welcome to Chief Hub</div>
-                
                 <div class="app-card">
                     <img src="https://raw.githubusercontent.com/mrchiefx12-wq/Chief-Hub/refs/heads/main/assets/logo.png" class="app-logo" alt="Chief Hub Logo">
-                    
                     <div class="app-info">
                         <h1 class="app-title">Chief</h1>
                         <div class="app-developer">Chief Studio International</div>
-                        
                         <div class="meta-grid">
-                            <div class="meta-item">
-                                <span class="meta-value" style="color: #ff9800;">10 ★</span>
-                                <span>Rating</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-value">15.0 MB</span>
-                                <span>File Size</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-value secure-badge">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Verified
-                                </span>
-                                <span>Security</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-value">Android 7.0+</span>
-                                <span>Required OS</span>
-                            </div>
+                            <div class="meta-item"><span class="meta-value" style="color: #ff9800;">10 ★</span><span>Rating</span></div>
+                            <div class="meta-item"><span class="meta-value">15.0 MB</span><span>File Size</span></div>
+                            <div class="meta-item"><span class="meta-value secure-badge">Verified</span><span>Security</span></div>
+                            <div class="meta-item"><span class="meta-value">Android 7.0+</span><span>Required OS</span></div>
                         </div>
-                        
-                        <a href="https://github.com/mrchiefx12-wq/Chief-Hub/raw/refs/heads/main/Chief.apk" class="download-btn" target="_blank">
-                            📥 Download APK
-                        </a>
+                        <a href="https://github.com/mrchiefx12-wq/Chief-Hub/raw/refs/heads/main/Chief.apk" class="download-btn" target="_blank">📥 Download APK</a>
                     </div>
                 </div>
 
                 <hr class="screenshot-divider">
 
                 <div class="screenshot-container">
-                    <div class="screenshot-slot">
-                        <div class="screenshot-placeholder-text">Slot 1<br>[https://raw.githubusercontent.com/mrchiefx12-wq/Chief-Hub/refs/heads/main/assets/ChatGPT%20Image%20Jun%2030%2C%202026%2C%2003_24_31%20PM.png]</div>
-                    </div>
-                    <div class="screenshot-slot">
-                        <div class="screenshot-placeholder-text">Slot 2<br>[Upload Image Here]</div>
-                    </div>
-                    <div class="screenshot-slot">
-                        <div class="screenshot-placeholder-text">Slot 3<br>[Upload Image Here]</div>
-                    </div>
-                    <div class="screenshot-slot">
-                        <div class="screenshot-placeholder-text">Slot 4<br>[Upload Image Here]</div>
-                    </div>
-                    <div class="screenshot-slot">
-                        <div class="screenshot-placeholder-text">Slot 5<br>[Upload Image Here]</div>
-                    </div>
+                    <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/mrchiefx12-wq/Chief-Hub/refs/heads/main/assets/1st_image.png" alt="Slot 1"></div>
+                    <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/WhatsApp%20Image%202026-06-30%20at%203.17.25%20PM.jpeg?raw=true" alt="Slot 2"></div>
+                    <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/WhatsApp%20Image%202026-06-30%20at%203.17.26%20PM.jpeg?raw=true" alt="Slot 3"></div>
+                    <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/WhatsApp%20Image%202026-06-30%20at%203.17.27%20PM.jpeg?raw=true" alt="Slot 4"></div>
+                    <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/ChatGPT%20Image%20Jun%2030,%202026,%2003_22_01%20PM.png?raw=true" alt="Slot 5"></div>
                 </div>
 
                 <div class="description-section">
                     <h2>About Chief</h2>
                     <p>The official mobile application by Chief Company is exclusively crafted for premium and luxury watch enthusiasts. This app unlocks state-of-the-art configuration tools, allowing you to design and personalize a completely unique "One-of-One Piece" watch made specifically for your wrist.</p>
-                    
                     <ul>
                         <li><strong>One-of-One Customization:</strong> Break away from mass-produced designs. Use our in-app real-time 3D configurator to fully customize your watch. Personalize everything from the watch dial and hands down to the high-end straps.</li>
                         <li><strong>₹200 Monthly Voucher:</strong> All active members of Chief Hub receive a complimentary ₹200 voucher code every single month, which can be effortlessly claimed directly via the built-in Voucher tab.</li>
                         <li><strong>3-Time Free Repairing:</strong> Keeping true to our luxury service promise, registering through this app entitles you to 3 complimentary watch repair, servicing, and premium maintenance sessions per year.</li>
                         <li><strong>Digital Verification Safety:</strong> Complete protection against counterfeits. Each custom watch generates a unique cryptographic digital verification certificate that can be instantly scanned within this app to verify 100% authenticity.</li>
                     </ul>
-
                     <h3>Fast & Seamless Interface</h3>
                     <p>Engineered to be highly optimized and lightweight (only 15 MB), Chief Hub ensures a fluid experience on all devices running Android 7.0 and above. The app is thoroughly scanned, secured, and guaranteed virus-free, as backed by our official security verification badge.</p>
-
                     <h3>How to Experience</h3>
                     <p>Simply click on the "Download APK" button above, install the application, log in using your credentials, and start designing your very first custom luxury timepiece today.</p>
                 </div>
@@ -228,60 +197,79 @@
                 <div class="ad-space">
                     <ins class="adsbygoogle"
                          style="display:block; min-width:300px; max-width:728px; width:100%; height:90px"
-                         data-ad-client="ca-pub-1234567890123456"
-                         data-ad-slot="1234567890"
+                         data-ad-client="ca-pub-3940256099942544"
+                         data-ad-slot="6300978111"
                          data-ad-format="auto"
                          data-full-width-responsive="true"></ins>
-                    <script>
-                         (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                 </div>
             </div>
 
             <div id="content-support" class="tab-content">
                 <div class="fragment-card">
                     <h2>Customer Support</h2>
-                    <p>Need assistance? Reach out to our dedicated support channels below.</p>
-                    <div style="margin-top: 15px; color: #666; font-style: italic;">[Insert Your Support Form or Widget Embed Code Here]</div>
+                    <div class="embed-placeholder-box">
+                        📥 यहाँ आपके CUSTOM SUPPORT FORM का कोड आयेगा
+                        </div>
                 </div>
             </div>
-
+            
             <div id="content-voucher" class="tab-content">
                 <div class="fragment-card">
                     <h2>Vouchers & Offers</h2>
-                    <p>View your active loyalty reward vouchers and claim latest coupon codes below.</p>
-                    <div style="margin-top: 15px; color: #666; font-style: italic;">[Insert Your Voucher Management System Embed Code Here]</div>
+                    <div class="embed-placeholder-box">
+                        🎫 यहाँ आपके VOUCHER SYSTEM का कोड आयेगा
+                        </div>
                 </div>
             </div>
-
+            
             <div id="content-help" class="tab-content">
                 <div class="fragment-card">
                     <h2>Help & FAQ</h2>
-                    <p>Facing trouble navigating the app? Find quick tutorials and documentation here.</p>
-                    <div style="margin-top: 15px; color: #666; font-style: italic;">[Insert Your Help Widget or FAQ Content Here]</div>
+                    <div class="embed-placeholder-box">
+                        ❓ यहाँ आपके FAQ / HELP SYSTEM का कोड आयेगा
+                        </div>
                 </div>
             </div>
-
         </div>
     </div>
 
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                const splash = document.getElementById('splash-screen');
-                const mainContent = document.getElementById('main-content');
-                splash.style.opacity = '0';
-                splash.style.visibility = 'hidden';
-                mainContent.style.opacity = '1';
-                mainContent.style.pointerEvents = 'auto';
-            }, 2000);
-        });
+    <div id="playstore-lightbox" class="playstore-lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" class="playstore-lightbox-content" src="" alt="Preview">
+    </div>
 
-        function switchTab(tabName) {
-            document.querySelectorAll('.nav-links li a').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            document.getElementById('tab-' + tabName).classList.add('active');
-            document.getElementById('content-' + tabName).classList.add('active');
+    <script>
+        window.addEventListener('DOMContentLoaded', () => { 
+            setTimeout(() => { 
+                const splash = document.getElementById('splash-screen'); 
+                const mainContent = document.getElementById('main-content'); 
+                splash.style.opacity = '0'; 
+                splash.style.visibility = 'hidden'; 
+                mainContent.style.opacity = '1'; 
+                mainContent.style.pointerEvents = 'auto'; 
+            }, 2000); 
+        });
+        
+        function switchTab(tabName) { 
+            document.querySelectorAll('.nav-links li a').forEach(el => el.classList.remove('active')); 
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active')); 
+            document.getElementById('tab-' + tabName).classList.add('active'); 
+            document.getElementById('content-' + tabName).classList.add('active'); 
+        }
+
+        /* PlayStore Lightbox Preview Functions */
+        function openLightbox(element) {
+            const imgSrc = element.querySelector('img').src;
+            const lightbox = document.getElementById('playstore-lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            lightboxImg.src = imgSrc;
+            lightbox.classList.add('open');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('playstore-lightbox');
+            lightbox.classList.remove('open');
         }
     </script>
 </body>
