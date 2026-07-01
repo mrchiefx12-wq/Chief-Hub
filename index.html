@@ -47,17 +47,116 @@
 
         #main-content { opacity: 0; transition: opacity 0.5s ease; pointer-events: none; }
 
-        /* Responsive Navbar Layout */
-        .navbar { display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 12px 5%; border-bottom: 1px solid #e1e4e8; box-shadow: 0 2px 4px rgba(0,0,0,0.02); position: sticky; top: 0; z-index: 1000; }
+        /* Professional Mobile-First Navbar */
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: #fff; 
+            padding: 12px 5%; 
+            border-bottom: 1px solid #e1e4e8; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            height: 65px;
+        }
         
-        /* Logo in Corner with Image */
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-size: 22px; font-weight: 800; color: #111; }
-        .logo img { width: 44px; height: 44px; object-fit: contain; }
+        /* Logo - Increased overall text size and matching icon size */
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            text-decoration: none; 
+            font-size: 26px; /* Increased Text Size */
+            font-weight: 800; 
+            color: #111;
+            order: 2; 
+        }
+        .logo img { 
+            width: 38px; /* Increased Icon Size to perfectly match the new bold 'C' */
+            height: 38px; 
+            object-fit: contain; 
+            display: block;
+        }
         .logo span { color: #24a148; }
 
-        .nav-links { display: flex; list-style: none; gap: 20px; }
-        .nav-links li a { text-decoration: none; color: #555; font-weight: 500; font-size: 14px; cursor: pointer; padding: 6px 0; transition: color 0.2s; }
-        .nav-links li a:hover, .nav-links li a.active { color: #24a148; font-weight: 600; }
+        /* 3-Line Menu Button (Top Left) */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 19px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1002;
+            order: 1; 
+        }
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Professional Sliding Sidebar Menu */
+        .nav-menu-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .nav-menu-wrapper.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .nav-links { 
+            display: flex; 
+            flex-direction: column;
+            list-style: none; 
+            gap: 0; 
+            background: #fff;
+            width: 280px;
+            height: 100%;
+            padding: 80px 20px 20px 20px;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .nav-menu-wrapper.open .nav-links {
+            transform: translateX(0);
+        }
+        .nav-links li {
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .nav-links li a { 
+            text-decoration: none; 
+            color: #333; 
+            font-weight: 500; 
+            font-size: 16px; 
+            cursor: pointer; 
+            display: block;
+            padding: 16px 10px; 
+            transition: all 0.2s; 
+            border-radius: 8px;
+            margin: 4px 0;
+        }
+        .nav-links li a:hover, .nav-links li a.active { 
+            color: #24a148; 
+            background: #f4faf6;
+            font-weight: 600; 
+        }
 
         /* Flexible Main Container */
         .container { max-width: 900px; margin: 20px auto; padding: 0 15px; }
@@ -75,7 +174,6 @@
         .app-developer { font-size: 13px; color: #0066cc; margin-bottom: 12px; font-weight: 500; }
         
         /* Meta Grid Structure */
-        .meta-grid { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; padding: 10px 0; }
         .meta-grid { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; padding: 10px 0; }
         .meta-item { display: flex; flex-direction: column; font-size: 12px; color: #666; min-width: 65px; }
         .meta-value { font-size: 14px; font-weight: 600; color: #222; margin-bottom: 1px; }
@@ -118,8 +216,7 @@
         .playstore-lightbox.open .playstore-lightbox-content { transform: scale(1); }
 
         @media (max-width: 600px) {
-            .navbar { padding: 12px 15px; flex-direction: column; gap: 12px; text-align: center; }
-            .nav-links { gap: 15px; }
+            .navbar { padding: 12px 15px; }
             .app-card { flex-direction: column; align-items: center; text-align: center; padding: 20px 15px; }
             .app-logo { width: 100px; height: 100px; }
             .meta-grid { justify-content: center; gap: 12px; }
@@ -127,6 +224,8 @@
             .download-btn { width: 100%; box-sizing: border-box; }
             .screenshot-slot { flex: 0 0 140px; height: 245px; }
             .playstore-lightbox-content { max-width: 85%; max-height: 75vh; }
+            .logo { font-size: 22px; gap: 6px; }
+            .logo img { width: 32px; height: 32px; } /* Fits beautifully on small mobile widths */
         }
     </style>
 </head>
@@ -139,16 +238,28 @@
 
     <div id="main-content">
         <nav class="navbar">
+            <!-- Logo in Corner (Top Right) - Re-scaled Bold View -->
             <a href="#" class="logo" onclick="switchTab('home')">
-                <img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/my_logo.png.png?raw=true" alt="Bigger Corner Logo"> 
+                <img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/my_logo.png.png?raw=true" alt="Corner Logo"> 
                 Chief <span>Hub</span>
             </a>
-            <ul class="nav-links">
-                <li><a id="tab-home" class="active" onclick="switchTab('home')">Home</a></li>
-                <li><a id="tab-support" onclick="switchTab('support')">Support</a></li>
-                <li><a id="tab-voucher" onclick="switchTab('voucher')">Voucher</a></li>
-                <li><a id="tab-help" onclick="switchTab('help')">Help</a></li>
-            </ul>
+            
+            <!-- 3-Line Menu Trigger (Top Left) -->
+            <button class="menu-toggle" onclick="toggleMenu(event)">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Navigation Links inside Sidebar Wrapper -->
+            <div id="nav-menu-wrapper" class="nav-menu-wrapper" onclick="toggleMenu(event)">
+                <ul class="nav-links" onclick="event.stopPropagation()">
+                    <li><a id="tab-home" class="active" onclick="switchTab('home')">Home</a></li>
+                    <li><a id="tab-support" onclick="switchTab('support')">Support</a></li>
+                    <li><a id="tab-voucher" onclick="switchTab('voucher')">Voucher</a></li>
+                    <li><a id="tab-help" onclick="switchTab('help')">Help</a></li>
+                </ul>
+            </div>
         </nav>
 
         <div class="container">
@@ -171,6 +282,7 @@
 
                 <hr class="screenshot-divider">
 
+                <!-- Screenshots Sections -->
                 <div class="screenshot-container">
                     <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/mrchiefx12-wq/Chief-Hub/refs/heads/main/assets/1st_image.png" alt="Slot 1"></div>
                     <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/WhatsApp%20Image%202026-06-30%20at%203.17.25%20PM.jpeg?raw=true" alt="Slot 2"></div>
@@ -205,35 +317,42 @@
                 </div>
             </div>
 
+            <!-- Support Tab Area -->
             <div id="content-support" class="tab-content">
                 <div class="fragment-card">
                     <h2>Customer Support</h2>
                     <div class="embed-placeholder-box">
+                        <!-- यहाँ पर अपना CUSTOM SUPPORT EMBED CODE पेस्ट करें -->
                         📥 यहाँ आपके CUSTOM SUPPORT FORM का कोड आयेगा
-                        </div>
+                    </div>
                 </div>
             </div>
             
+            <!-- Voucher Tab Area -->
             <div id="content-voucher" class="tab-content">
                 <div class="fragment-card">
                     <h2>Vouchers & Offers</h2>
                     <div class="embed-placeholder-box">
+                        <!-- यहाँ पर अपना CUSTOM VOUCHER EMBED CODE पेस्ट करें -->
                         🎫 यहाँ आपके VOUCHER SYSTEM का कोड आयेगा
-                        </div>
+                    </div>
                 </div>
             </div>
             
+            <!-- Help Tab Area -->
             <div id="content-help" class="tab-content">
                 <div class="fragment-card">
                     <h2>Help & FAQ</h2>
                     <div class="embed-placeholder-box">
+                        <!-- यहाँ पर अपना CUSTOM FAQ EMBED CODE पेस्ट करें -->
                         ❓ यहाँ आपके FAQ / HELP SYSTEM का कोड आयेगा
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- PlayStore Professional Lightbox Overlay -->
     <div id="playstore-lightbox" class="playstore-lightbox" onclick="closeLightbox()">
         <img id="lightbox-img" class="playstore-lightbox-content" src="" alt="Preview">
     </div>
@@ -250,11 +369,22 @@
             }, 2000); 
         });
         
+        // Toggle Sidebar Menu Function
+        function toggleMenu(event) {
+            event.stopPropagation();
+            const menuWrapper = document.getElementById('nav-menu-wrapper');
+            menuWrapper.classList.toggle('open');
+        }
+
         function switchTab(tabName) { 
             document.querySelectorAll('.nav-links li a').forEach(el => el.classList.remove('active')); 
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active')); 
+            
             document.getElementById('tab-' + tabName).classList.add('active'); 
             document.getElementById('content-' + tabName).classList.add('active'); 
+            
+            // Automatically close menu when an option is clicked
+            document.getElementById('nav-menu-wrapper').classList.remove('open');
         }
 
         /* PlayStore Lightbox Preview Functions */
