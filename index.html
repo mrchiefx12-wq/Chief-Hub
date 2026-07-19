@@ -264,7 +264,6 @@
                 <ul class="nav-links" onclick="event.stopPropagation()">
                     <li><a id="tab-home" class="active" onclick="switchTab('home')">Home</a></li>
                     <li><a id="tab-support" onclick="switchTab('support')">Support</a></li>
-                    <li><a id="tab-voucher" onclick="switchTab('voucher')">Voucher</a></li>
                     <li><a id="tab-help" onclick="switchTab('help')">Help</a></li>
                 </ul>
             </div>
@@ -279,8 +278,8 @@
                         <h1 class="app-title">Chief</h1>
                         <div class="app-developer">Chief Studio International</div>
                         <div class="meta-grid">
-                            <div class="meta-item"><span class="meta-value" style="color: #ff9800;">10 ★</span><span>Rating</span></div>
-                            <div class="meta-item"><span class="meta-value">15.0 MB</span><span>File Size</span></div>
+                            <div class="meta-item"><span class="meta-value" style="color: #ff9800;">4.5 ★</span><span>Rating</span></div>
+                            <div class="meta-item"><span class="meta-value">16.8 MB</span><span>File Size</span></div>
                             <div class="meta-item"><span class="meta-value secure-badge">Verified</span><span>Security</span></div>
                             <div class="meta-item"><span class="meta-value">Android 7.0+</span><span>Required OS</span></div>
                         </div>
@@ -330,27 +329,1145 @@
 
             <div id="content-support" class="tab-content">
                 <div class="fragment-card">
-                    <h2>Customer Support</h2>
-                    <div class="embed-placeholder-box">
-                        📥 यहाँ आपके CUSTOM SUPPORT FORM का कोड आयेगा
-                    </div>
-                </div>
-            </div>
-            
-            <div id="content-voucher" class="tab-content">
-                <div class="fragment-card">
-                    <h2>Vouchers & Offers</h2>
-                    <div class="embed-placeholder-box">
-                        🎫 यहाँ आपके VOUCHER SYSTEM का कोड आयेगा
-                    </div>
+                    <div id="chief-support-fragment">
+
+<style>
+#chief-support-fragment {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #111111;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 55px 6vw 80px;
+  overflow-x: hidden;
+}
+
+#chief-support-fragment * {
+  box-sizing: border-box;
+}
+
+.chief-support-wrapper {
+  width: 100%;
+  max-width: 1250px;
+  margin: auto;
+}
+
+/* HEADER */
+
+.chief-support-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.chief-support-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #777777;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.chief-support-header h1 {
+  font-size: clamp(40px, 6vw, 76px);
+  letter-spacing: -2px;
+  line-height: 1.05;
+  margin: 0;
+  font-weight: 800;
+}
+
+.chief-support-header p {
+  max-width: 760px;
+  margin: 22px auto 0;
+  color: #666666;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* INTRO */
+
+.chief-support-intro {
+  padding: 35px;
+  background: #f8f8f8;
+  border-radius: 18px;
+  margin-bottom: 55px;
+}
+
+.chief-support-intro h2 {
+  margin: 0 0 15px;
+  font-size: 28px;
+}
+
+.chief-support-intro p {
+  margin: 0;
+  color: #555555;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* ISSUE LIST */
+
+.chief-issues-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.chief-issues-title h2 {
+  font-size: 36px;
+  margin: 0 0 12px;
+}
+
+.chief-issues-title p {
+  color: #777777;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.chief-issue-list {
+  border-top: 1px solid #e5e5e5;
+}
+
+/* ISSUE */
+
+.chief-issue {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.chief-issue summary {
+  list-style: none;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 55px 1fr 35px;
+  align-items: center;
+  gap: 15px;
+  padding: 25px 12px;
+  transition: background 0.25s ease;
+}
+
+.chief-issue summary::-webkit-details-marker {
+  display: none;
+}
+
+.chief-issue summary:hover {
+  background: #fafafa;
+}
+
+.chief-issue-number {
+  font-size: 12px;
+  color: #999999;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.chief-issue-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222222;
+}
+
+.chief-issue-icon {
+  font-size: 25px;
+  color: #777777;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.chief-issue[open] .chief-issue-icon {
+  transform: rotate(45deg);
+}
+
+/* SOLUTION */
+
+.chief-solution {
+  margin: 0 12px 25px 70px;
+  padding: 25px;
+  background: #f8f8f8;
+  border-left: 3px solid #111111;
+  animation: chiefSolutionOpen 0.3s ease;
+}
+
+.chief-solution-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.chief-solution p {
+  margin: 0;
+  color: #555555;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* CONTACT */
+
+.chief-support-contact {
+  margin-top: 65px;
+  padding: 55px 30px;
+  background: #111111;
+  color: #ffffff;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.chief-support-contact h2 {
+  margin: 0 0 15px;
+  font-size: 32px;
+}
+
+.chief-support-contact p {
+  max-width: 650px;
+  margin: 0 auto 30px;
+  color: #cccccc;
+  line-height: 1.8;
+}
+
+.chief-support-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #111111;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+.chief-support-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255,255,255,0.2);
+}
+
+/* FOOTER */
+
+.chief-support-footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #999999;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+}
+
+/* ANIMATION */
+
+@keyframes chiefSolutionOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  #chief-support-fragment {
+    padding: 38px 16px 55px;
+  }
+
+  .chief-support-header {
+    margin-bottom: 40px;
+  }
+
+  .chief-support-header h1 {
+    font-size: 43px;
+    letter-spacing: -1px;
+  }
+
+  .chief-support-header p {
+    font-size: 15px;
+  }
+
+  .chief-support-intro {
+    padding: 25px 20px;
+  }
+
+  .chief-support-intro h2 {
+    font-size: 24px;
+  }
+
+  .chief-support-intro p {
+    font-size: 14px;
+  }
+
+  .chief-issues-title h2 {
+    font-size: 29px;
+  }
+
+  .chief-issue summary {
+    grid-template-columns: 38px 1fr 25px;
+    gap: 10px;
+    padding: 21px 5px;
+  }
+
+  .chief-issue-name {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .chief-solution {
+    margin-left: 48px;
+    padding: 19px;
+  }
+
+  .chief-solution p {
+    font-size: 14px;
+  }
+
+  .chief-support-contact {
+    padding: 38px 20px;
+  }
+
+  .chief-support-contact h2 {
+    font-size: 26px;
+  }
+
+  .chief-support-button {
+    width: 100%;
+  }
+}
+</style>
+
+
+<div class="chief-support-wrapper">
+
+
+  <div class="chief-support-header">
+
+    <div class="chief-support-label">
+      CHIEF SUPPORT CENTER
+    </div>
+
+    <h1>
+      SUPPORT
+    </h1>
+
+    <p>
+      Find answers to common questions and problems related to your CHIEF
+      account, rewards, C Coins, referrals, vouchers, verification, orders,
+      payments, and application experience.
+    </p>
+
+  </div>
+
+
+  <div class="chief-support-intro">
+
+    <h2>
+      Find Your Solution
+    </h2>
+
+    <p>
+      We understand that sometimes you may face an unexpected problem while
+      using CHIEF. To make things easier, we have listed some of the most common
+      issues users may experience. Select the problem that matches your
+      situation to view a simple solution and helpful guidance.
+    </p>
+
+  </div>
+
+
+  <div class="chief-issues-title">
+
+    <h2>
+      Common Issues
+    </h2>
+
+    <p>
+      Click on any issue below to view its solution.
+    </p>
+
+  </div>
+
+
+  <div class="chief-issue-list">
+
+
+    <details class="chief-issue">
+
+      <summary>
+        <span class="chief-issue-number">01</span>
+        <span class="chief-issue-name">
+          I cannot create or access my CHIEF account
+        </span>
+        <span class="chief-issue-icon">+</span>
+      </summary>
+
+      <div class="chief-solution">
+
+        <div class="chief-solution-title">
+          Solution
+        </div>
+
+        <p>
+          First, check that your internet connection is working correctly and
+          make sure all account information has been entered accurately. If you
+          are unable to log in, check your email and password carefully. Avoid
+          creating multiple accounts for the same issue. If you still cannot
+          access your account, contact CHIEF Support and explain the exact
+          problem you are experiencing.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <details class="chief-issue">
+
+      <summary>
+        <span class="chief-issue-number">02</span>
+        <span class="chief-issue-name">
+          I forgot my password or cannot sign in
+        </span>
+        <span class="chief-issue-icon">+</span>
+      </summary>
+
+      <div class="chief-solution">
+
+        <div class="chief-solution-title">
+          Solution
+        </div>
+
+        <p>
+          Check that your email address and password are entered correctly and
+          that there are no unnecessary spaces. If a password recovery option
+          is available, use it to restore access to your account. Never share
+          your password with anyone. If you are still unable to sign in,
+          contact CHIEF Support for further assistance.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <details class="chief-issue">
+
+      <summary>
+        <span class="chief-issue-number">03</span>
+        <span class="chief-issue-name">
+          My product verification code is not working
+        </span>
+        <span class="chief-issue-icon">+</span>
+      </summary>
+
+      <div class="chief-solution">
+
+        <div class="chief-solution-title">
+          Solution
+        </div>
+
+        <p>
+          Carefully check every character of your verification code. Make sure
+          there are no extra spaces or typing mistakes. Enter the code exactly
+          as provided. If the code is still not accepted, do not repeatedly
+          enter random information. Contact CHIEF Support with the relevant
+          details so the issue can be reviewed.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <details class="chief-issue">
+
+      <summary>
+        <span class="chief-issue-number">04</span>
+        <span class="chief-issue-name">
+          My daily reward has not appeared
+        </span>
+        <span class="chief-issue-icon">+</span>
+      </summary>
+
+      <div class="chief-solution">
+
+        <div class="chief-solution-title">
+          Solution
+        </div>
+
+        <p>
+          Refresh the application or page and check again after a short time.
+          Some rewards may require processing before they appear in your
+          account. Avoid repeatedly claiming the same reward. If the reward
+          remains missing after the required time, contact CHIEF Support and
+          explain when and how you completed the activity.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <details class="chief-issue">
+
+      <summary>
+        <span class="chief-issue-number">05</span>
+        <span class="chief-issue-name">
+          My C Coins or reward balance is incorrect
+        </span>
+        <span class="chief-issue-icon">+</span>
+      </summary>
+
+      <div class="chief-solution">
+
+        <div class="chief-solution-title">
+          Solution
+        </div>
+
+        <p>
+          First, refresh your account and allow the system a short time to
+          update your balance. Check whether the activity was successfully
+          completed. If your balance still appears incorrect, contact support
+          and provide a clear description of the activity and the issue you
+          noticed. Do not repeatedly perform the same action.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <details class="chief-issue">
+
+      <summary>
+        <span class="chief-issue-number">06</span>
+        <span class="chief-issue-name">
+          My referral reward has not been added
+        </span>
+        <span class="chief-issue-icon">+</span>
+      </summary>
+
+      <div class="chief-solution">
+
+        <div class="chief-solution-title">
+          Solution
+        </div>
+
+        <p>
+          Referral rewards may depend on the referred user completing the
+          required steps. Check that the referral process was completed
+          correctly. If all required conditions were completed but the reward
+          is still missing, contact CHIEF Support so the referral can be
+          reviewed.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <details class="chief-issue">
+
+      <summary>
+        <span class="chief-issue-number">07</span>
+        <span class="chief-issue-name">
+          Reward ads are not loading or not giving rewards
+        </span>
+        <span class="chief-issue-icon">+</span>
+      </summary>
+
+      <div class="chief-solution">
+
+        <div class="chief-solution-title">
+          Solution
+        </div>
+
+        <p>
+          Check your internet connection and try again after a short time.
+          Advertisement availability can sometimes vary depending on the
+          current network or ad availability. Do not repeatedly click the
+          reward option. If the issue continues, contact CHIEF Support and
+          mention what happened.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <details class="chief-issue">
+
+      <summary>
+        <span class="chief-issue-number">08</span>
+        <span class="chief-issue-name">
+          My voucher is not working or cannot be used
+        </span>
+        <span class="chief-issue-icon">+</span>
+      </summary>
+
+      <div class="chief-solution">
+
+        <div class="chief-solution-title">
+          Solution
+        </div>
+
+        <p>
+          Check that the voucher information has been entered correctly and
+          confirm that the voucher is valid for the intended use. Keep your
+          voucher information private and do not share it publicly. If the
+          voucher should be working but is not accepted, contact CHIEF Support
+          with the relevant information.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <details class="chief-issue">
+
+      <summary>
+        <span class="chief-issue-number">09</span>
+        <span class="chief-issue-name">
+          My order or custom request has not been updated
+        </span>
+        <span class="chief-issue-icon">+</span>
+      </summary>
+
+      <div class="chief-solution">
+
+        <div class="chief-solution-title">
+          Solution
+        </div>
+
+        <p>
+          Some orders and requests may require time for review and processing.
+          Please allow reasonable time for your request to be handled. If you
+          have waited and still have no update, contact CHIEF Support with your
+          order or request information so the team can assist you.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <details class="chief-issue">
+
+      <summary>
+        <span class="chief-issue-number">10</span>
+        <span class="chief-issue-name">
+          A page, feature, or button is not working
+        </span>
+        <span class="chief-issue-icon">+</span>
+      </summary>
+
+      <div class="chief-solution">
+
+        <div class="chief-solution-title">
+          Solution
+        </div>
+
+        <p>
+          Check your internet connection first. Refresh the page or completely
+          close and reopen the application. If the feature still does not work,
+          try again after a short time. When contacting support, mention the
+          exact page, feature, or button that is causing the problem.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <details class="chief-issue">
+
+      <summary>
+        <span class="chief-issue-number">11</span>
+        <span class="chief-issue-name">
+          The application or WebView is showing a blank screen
+        </span>
+        <span class="chief-issue-icon">+</span>
+      </summary>
+
+      <div class="chief-solution">
+
+        <div class="chief-solution-title">
+          Solution
+        </div>
+
+        <p>
+          Check your internet connection and restart the application. If the
+          problem continues, close the app completely and open it again. Make
+          sure your device has a stable connection. If the blank screen remains,
+          contact CHIEF Support and mention which page was showing the issue.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <details class="chief-issue">
+
+      <summary>
+        <span class="chief-issue-number">12</span>
+        <span class="chief-issue-name">
+          My payment or purchase-related issue needs assistance
+        </span>
+        <span class="chief-issue-icon">+</span>
+      </summary>
+
+      <div class="chief-solution">
+
+        <div class="chief-solution-title">
+          Solution
+        </div>
+
+        <p>
+          Do not repeat a payment immediately if you are unsure whether the
+          first attempt was successful. Check your transaction information and
+          contact CHIEF Support with the relevant details. Never share your
+          password or sensitive security information with anyone.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <details class="chief-issue">
+
+      <summary>
+        <span class="chief-issue-number">13</span>
+        <span class="chief-issue-name">
+          I believe there is incorrect information in my account
+        </span>
+        <span class="chief-issue-icon">+</span>
+      </summary>
+
+      <div class="chief-solution">
+
+        <div class="chief-solution-title">
+          Solution
+        </div>
+
+        <p>
+          Do not create another account or repeatedly change information while
+          trying to fix the problem. Note exactly what appears incorrect and
+          contact CHIEF Support with a clear explanation. Our support team can
+          review the issue and guide you through the next steps.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <details class="chief-issue">
+
+      <summary>
+        <span class="chief-issue-number">14</span>
+        <span class="chief-issue-name">
+          I think there may be a security issue with my account
+        </span>
+        <span class="chief-issue-icon">+</span>
+      </summary>
+
+      <div class="chief-solution">
+
+        <div class="chief-solution-title">
+          Solution
+        </div>
+
+        <p>
+          Keep your password and private account information confidential.
+          Do not share login details with anyone. If you notice unusual account
+          activity or believe your account may be at risk, contact CHIEF Support
+          immediately and explain the situation clearly.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <details class="chief-issue">
+
+      <summary>
+        <span class="chief-issue-number">15</span>
+        <span class="chief-issue-name">
+          My problem is not listed here
+        </span>
+        <span class="chief-issue-icon">+</span>
+      </summary>
+
+      <div class="chief-solution">
+
+        <div class="chief-solution-title">
+          Solution
+        </div>
+
+        <p>
+          No problem. Every possible issue cannot be listed in one support
+          center. Use the Contact CHIEF Support button below and explain your
+          problem clearly. Tell us which feature you were using, what you
+          expected to happen, and what actually happened. This helps our team
+          understand your request and provide better assistance.
+        </p>
+
+      </div>
+
+    </details>
+
+
+  </div>
+
+
+  <div class="chief-support-contact">
+
+    <h2>
+      Still Need Help?
+    </h2>
+
+    <p>
+      If you could not find the solution to your problem above, our support
+      team is ready to assist you. Send us a clear message describing your
+      issue and we will review your request.
+    </p>
+
+    <a
+      class="chief-support-button"
+      href="mailto:mrchiefx12@gmail.com?subject=CHIEF%20Support%20Request&body=Hello%20CHIEF%20Support%2C%0A%0AI%20need%20help%20with%3A%0A%0A%0AAdditional%20details%3A%0A%0A%0AThank%20you."
+    >
+      ✉ Contact CHIEF Support
+    </a>
+
+  </div>
+
+
+  <div class="chief-support-footer">
+    CHIEF • Support Center
+  </div>
+
+
+</div>
+
+</div>
                 </div>
             </div>
             
             <div id="content-help" class="tab-content">
                 <div class="fragment-card">
-                    <h2>Help & FAQ</h2>
-                    <div class="embed-placeholder-box">
-                        ❓ यहाँ आपके FAQ / HELP SYSTEM का कोड आयेगा
+                    <div id="chief-help-page">
+
+  <style>
+    #chief-help-page {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #111111;
+      width: 100%;
+      min-height: 100vh;
+      box-sizing: border-box;
+      padding: 45px 22px 55px;
+    }
+
+    #chief-help-page * {
+      box-sizing: border-box;
+    }
+
+    .chief-help-wrapper {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .chief-help-header {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .chief-help-label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      color: #777;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .chief-help-title {
+      font-size: clamp(32px, 6vw, 58px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    .chief-help-subtitle {
+      max-width: 650px;
+      margin: 18px auto 0;
+      color: #666;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .chief-help-card {
+      border: 1px solid #e5e5e5;
+      border-radius: 18px;
+      padding: clamp(25px, 5vw, 48px);
+      background: #ffffff;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.05);
+    }
+
+    .chief-help-card h2 {
+      font-size: 26px;
+      margin: 0 0 18px;
+      letter-spacing: -0.5px;
+    }
+
+    .chief-help-card p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.85;
+      margin: 0 0 20px;
+    }
+
+    .chief-help-section {
+      padding: 25px 0;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .chief-help-section:last-of-type {
+      border-bottom: none;
+    }
+
+    .chief-help-section h3 {
+      font-size: 18px;
+      margin: 0 0 10px;
+      font-weight: 700;
+    }
+
+    .chief-help-section p {
+      margin-bottom: 0;
+    }
+
+    .chief-help-contact {
+      margin-top: 35px;
+      padding: 30px 25px;
+      background: #111111;
+      border-radius: 16px;
+      text-align: center;
+      color: white;
+    }
+
+    .chief-help-contact h2 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .chief-help-contact p {
+      color: #cfcfcf;
+      margin-bottom: 22px;
+      line-height: 1.7;
+    }
+
+    .chief-contact-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 25px;
+      border-radius: 8px;
+      background: white;
+      color: #111111;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: all 0.25s ease;
+    }
+
+    .chief-contact-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255,255,255,0.15);
+    }
+
+    .chief-help-footer {
+      text-align: center;
+      margin-top: 35px;
+      font-size: 12px;
+      color: #999;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 600px) {
+      #chief-help-page {
+        padding: 30px 15px 40px;
+      }
+
+      .chief-help-card {
+        padding: 24px 20px;
+        border-radius: 14px;
+      }
+
+      .chief-help-card p {
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .chief-help-contact {
+        padding: 25px 18px;
+      }
+
+      .chief-contact-button {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <div class="chief-help-wrapper">
+
+    <div class="chief-help-header">
+      <div class="chief-help-label">CHIEF SUPPORT</div>
+
+      <h1 class="chief-help-title">How Can We Help?</h1>
+
+      <p class="chief-help-subtitle">
+        Welcome to the CHIEF Help & Support Center. Find useful information,
+        guidance, and assistance for your account, rewards, verification,
+        vouchers, orders, and other services.
+      </p>
+    </div>
+
+    <div class="chief-help-card">
+
+      <h2>Help & Support</h2>
+
+      <p>
+        At CHIEF, we aim to provide a smooth, reliable, and premium experience
+        for every user. Whether you are using our application, verifying a
+        CHIEF product, managing your account, participating in rewards, or
+        using any of our available services, this help section is designed to
+        guide you through the most common questions and situations.
+      </p>
+
+      <div class="chief-help-section">
+        <h3>Account & Login</h3>
+
+        <p>
+          If you are having trouble signing in, creating an account, accessing
+          your profile, or using any account-related feature, please first make
+          sure that the information you have entered is correct. If the issue
+          continues, avoid creating multiple accounts for the same problem and
+          contact our support team so that we can review your request properly.
+        </p>
+      </div>
+
+      <div class="chief-help-section">
+        <h3>Product Verification</h3>
+
+        <p>
+          CHIEF product verification features are designed to help users check
+          the authenticity and registered details of eligible products. Please
+          enter your verification information carefully and exactly as provided.
+          If your verification code is not working, is showing an unexpected
+          result, or you believe there may be an issue with your product
+          information, please contact CHIEF Support for further assistance.
+        </p>
+      </div>
+
+      <div class="chief-help-section">
+        <h3>Rewards & C Coins</h3>
+
+        <p>
+          If you are using reward features, daily rewards, referral rewards, or
+          other available earning options, please allow a short amount of time
+          for the system to process your activity. In case a reward does not
+          appear correctly, please do not repeatedly perform the same action.
+          Instead, contact our support team with the relevant details so the
+          issue can be checked properly.
+        </p>
+      </div>
+
+      <div class="chief-help-section">
+        <h3>Vouchers & Benefits</h3>
+
+        <p>
+          If you have purchased or received a CHIEF voucher and experience any
+          difficulty while checking its status, balance, validity, or usage,
+          please keep your voucher information safe and contact us with the
+          necessary details. For your security, never share sensitive account
+          passwords or private login information with anyone.
+        </p>
+      </div>
+
+      <div class="chief-help-section">
+        <h3>Orders & Services</h3>
+
+        <p>
+          For questions related to product orders, custom requests, service
+          availability, order status, or any other CHIEF service, please provide
+          as much relevant information as possible when contacting us. This helps
+          our team understand your request and provide a faster and more accurate
+          response.
+        </p>
+      </div>
+
+      <div class="chief-help-section">
+        <h3>Technical Problems</h3>
+
+        <p>
+          If a feature is not loading correctly, a page is not working, a
+          button is not responding, or you encounter an unexpected error, try
+          refreshing the page or reopening the application first. If the issue
+          continues, please contact us and explain what happened, which feature
+          you were using, and any relevant information that may help us
+          investigate the problem.
+        </p>
+      </div>
+
+      <div class="chief-help-section">
+        <h3>Before Contacting Support</h3>
+
+        <p>
+          To help us assist you efficiently, please include a clear description
+          of your issue in your message. If relevant, mention the feature or
+          service you were using and explain what happened. Please do not send
+          your password or other highly sensitive private information. Our team
+          will review your request and respond as soon as possible.
+        </p>
+      </div>
+
+      <div class="chief-help-contact">
+
+        <h2>For Any Issue, Contact Us</h2>
+
+        <p>
+          Could not find the answer you were looking for?
+          Our support team is here to help.
+        </p>
+
+        <a
+          class="chief-contact-button"
+          href="mailto:mrchiefx12@gmail.com?subject=CHIEF%20Support%20Request&body=Hello%20CHIEF%20Support%2C%0A%0AI%20need%20help%20with%3A%0A%0A%0AAdditional%20details%3A%0A%0A%0AThank%20you."
+        >
+          ✉ Contact CHIEF Support
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="chief-help-footer">
+      CHIEF • Help & Support Center
+    </div>
+
+  </div>
+
+</div>
+                        
                     </div>
                 </div>
             </div>
