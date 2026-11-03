@@ -61,7 +61,6 @@
             height: 65px;
         }
         
-        /* Logo - Increased overall text size and matching icon size */
         .logo { 
             display: flex; 
             align-items: center; 
@@ -71,6 +70,7 @@
             font-weight: 800; 
             color: #111;
             order: 2; 
+            cursor: pointer;
         }
         .logo img { 
             width: 38px; 
@@ -80,7 +80,6 @@
         }
         .logo span { color: #24a148; }
 
-        /* 3-Line Menu Button (Top Left) */
         .menu-toggle {
             display: flex;
             flex-direction: column;
@@ -101,7 +100,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Professional Sliding Sidebar Menu */
         .nav-menu-wrapper {
             position: fixed;
             top: 0;
@@ -110,21 +108,16 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
             z-index: 1001;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
-        .nav-menu-wrapper.open {
-            opacity: 1;
-            visibility: visible;
-        }
+        .nav-menu-wrapper.open { opacity: 1; visibility: visible; }
         .nav-links { 
             display: flex; 
             flex-direction: column;
             list-style: none; 
-            gap: 0; 
             background: #fff;
             width: 280px;
             height: 100%;
@@ -133,12 +126,8 @@
             transform: translateX(-100%);
             transition: transform 0.3s ease;
         }
-        .nav-menu-wrapper.open .nav-links {
-            transform: translateX(0);
-        }
-        .nav-links li {
-            border-bottom: 1px solid #f0f0f0;
-        }
+        .nav-menu-wrapper.open .nav-links { transform: translateX(0); }
+        .nav-links li { border-bottom: 1px solid #f0f0f0; }
         .nav-links li a { 
             text-decoration: none; 
             color: #333; 
@@ -147,59 +136,121 @@
             cursor: pointer; 
             display: block;
             padding: 16px 10px; 
-            transition: all 0.2s; 
             border-radius: 8px;
             margin: 4px 0;
         }
-        .nav-links li a:hover, .nav-links li a.active { 
-            color: #24a148; 
-            background: #f4faf6;
-            font-weight: 600; 
-        }
+        .nav-links li a:hover, .nav-links li a.active { color: #24a148; background: #f4faf6; font-weight: 600; }
 
-        /* Flexible Main Container */
         .container { max-width: 900px; margin: 20px auto; padding: 0 15px; }
-        
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-
         .welcome-text { font-size: 16px; color: #666; margin-bottom: 15px; font-weight: 500; }
-        
+
+        /* Play Store Style App Grid (Home Screen) */
+        #app-grid-view {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .app-grid-item {
+            background: #fff;
+            border: 1px solid #e1e4e8;
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .app-grid-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        }
+        .grid-app-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            object-fit: cover;
+            margin: 0 auto 12px auto;
+            display: block;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            border: 1px solid #eaeaea;
+        }
+        .grid-app-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .grid-app-size {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Back Button to return to App Grid */
+        .back-to-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #f0f2f5;
+            color: #333;
+            border: 1px solid #d0d7de;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 15px;
+            transition: background 0.2s;
+        }
+        .back-to-home-btn:hover { background: #e1e4e8; }
+
+        /* App View Visibility */
+        .app-detail-view { display: none; }
+        .app-detail-view.active { display: block; }
+
         /* App Card Layout */
         .app-card { background: #fff; border-radius: 12px; padding: 20px; display: flex; gap: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #e1e4e8; }
-        .app-logo { width: 120px; height: 120px; border-radius: 24px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); object-fit: contain; background: #fff; border: 1px solid #eaeaea; padding: 5px; flex-shrink: 0; }
+        .app-logo { 
+            width: 120px; 
+            height: 120px; 
+            border-radius: 26px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+            object-fit: cover; 
+            background: #fff; 
+            border: 1px solid #eaeaea; 
+            flex-shrink: 0; 
+        }
         .app-info { flex: 1; }
         .app-title { font-size: 22px; font-weight: 700; color: #111; margin-bottom: 2px; }
         .app-developer { font-size: 13px; color: #0066cc; margin-bottom: 12px; font-weight: 500; }
         
-        /* Meta Grid Structure */
         .meta-grid { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; padding: 10px 0; }
         .meta-item { display: flex; flex-direction: column; font-size: 12px; color: #666; min-width: 65px; }
         .meta-value { font-size: 14px; font-weight: 600; color: #222; margin-bottom: 1px; }
         .secure-badge { color: #24a148; display: flex; align-items: center; gap: 2px; }
 
-        /* Download Button */
         .download-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #24a148; color: #fff; padding: 12px 30px; border-radius: 30px; font-size: 15px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(36,161,72,0.2); transition: background 0.2s; width: auto; text-align: center; }
         .download-btn:hover { background: #1e873b; }
 
-        /* Screenshot Slots */
         .screenshot-divider { border: 0; height: 1px; background: #e1e4e8; margin: 25px 0 15px 0; }
         .screenshot-container { display: flex; gap: 12px; overflow-x: auto; padding: 5px 2px 15px 2px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
         .screenshot-container::-webkit-scrollbar { display: none; }
-        .screenshot-slot { flex: 0 0 160px; height: 280px; background: #eaeaea; border-radius: 10px; border: 1px dashed #b5b5b5; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; scroll-snap-align: start; cursor: pointer; transition: transform 0.2s ease; }
-        .screenshot-slot:hover { transform: scale(1.02); }
+        .screenshot-slot { flex: 0 0 160px; height: 280px; background: #f0f2f5; border-radius: 12px; border: 1.5px dashed #b5b5b5; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; scroll-snap-align: start; cursor: pointer; transition: transform 0.2s ease; color: #666; font-size: 12px; font-weight: 500; text-align: center; }
+        .screenshot-slot:hover { transform: scale(1.02); border-color: #24a148; }
         .screenshot-slot img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Professional Description Section */
         .description-section { background: #fff; border-radius: 12px; padding: 25px; margin-top: 25px; border: 1px solid #e1e4e8; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
         .description-section h2 { font-size: 18px; font-weight: 700; color: #111; margin-bottom: 15px; border-bottom: 2px solid #24a148; display: inline-block; padding-bottom: 4px; }
         .description-section p { font-size: 14px; color: #444; line-height: 1.6; margin-bottom: 15px; }
         .description-section ul { list-style-type: none; margin-bottom: 20px; }
         .description-section ul li { font-size: 14px; color: #444; line-height: 1.6; margin-bottom: 10px; position: relative; padding-left: 20px; }
         .description-section ul li::before { content: "•"; color: #24a148; font-weight: bold; font-size: 18px; position: absolute; left: 0; top: -2px; }
-        .description-section h3 { font-size: 15px; font-weight: 700; color: #111; margin-top: 20px; margin-bottom: 8px; }
 
-        /* Optimized Banner Ad Container for 300x250 Adsterra format */
         .ad-space { 
             margin-top: 25px; 
             width: 100%; 
@@ -217,11 +268,7 @@
         .fragment-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #e1e4e8; }
         .fragment-card h2 { margin-bottom: 10px; font-size: 18px; color: #111; }
 
-        /* Professional Embed Container Box */
-        .embed-placeholder-box { margin-top: 15px; padding: 20px; border: 2px dashed #24a148; background-color: #f4faf6; border-radius: 8px; text-align: center; color: #1e873b; font-weight: 500; font-size: 14px; }
-
-        /* PlayStore Like Lightbox (Preview) CSS */
-        .playstore-lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 10000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .playstore-lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 10000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
         .playstore-lightbox.open { opacity: 1; visibility: visible; }
         .playstore-lightbox-content { max-width: 90%; max-height: 85vh; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transform: scale(0.9); transition: transform 0.3s ease; object-fit: contain; }
         .playstore-lightbox.open .playstore-lightbox-content { transform: scale(1); }
@@ -234,7 +281,6 @@
             .meta-item { min-width: 75px; }
             .download-btn { width: 100%; box-sizing: border-box; }
             .screenshot-slot { flex: 0 0 140px; height: 245px; }
-            .playstore-lightbox-content { max-width: 85%; max-height: 75vh; }
             .logo { font-size: 22px; gap: 6px; }
             .logo img { width: 32px; height: 32px; }
         }
@@ -249,7 +295,7 @@
 
     <div id="main-content">
         <nav class="navbar">
-            <a href="#" class="logo" onclick="switchTab('home')">
+            <a class="logo" onclick="switchTab('home')">
                 <img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/my_logo.png.png?raw=true" alt="Corner Logo"> 
                 Chief <span>Hub</span>
             </a>
@@ -271,48 +317,103 @@
 
         <div class="container">
             <div id="content-home" class="tab-content active">
-                <div class="welcome-text">👋 Welcome to Chief Hub</div>
-                <div class="app-card">
-                    <img src="https://raw.githubusercontent.com/mrchiefx12-wq/Chief-Hub/refs/heads/main/assets/logo.png" class="app-logo" alt="Chief Hub Logo">
-                    <div class="app-info">
-                        <h1 class="app-title">Chief</h1>
-                        <div class="app-developer">Chief Studio International</div>
-                        <div class="meta-grid">
-                            <div class="meta-item"><span class="meta-value" style="color: #ff9800;">4.5 ★</span><span>Rating</span></div>
-                            <div class="meta-item"><span class="meta-value">16.8 MB</span><span>File Size</span></div>
-                            <div class="meta-item"><span class="meta-value secure-badge">Verified</span><span>Security</span></div>
-                            <div class="meta-item"><span class="meta-value">Android 7.0+</span><span>Required OS</span></div>
-                        </div>
-                        <a href="https://github.com/mrchiefx12-wq/Chief-Hub/raw/refs/heads/main/Chief.apk" class="download-btn" target="_blank">📥 Download APK</a>
+                
+                <!-- PLAY STORE STYLE APP GRID VIEW (Default Screen) -->
+                <div id="app-grid-view">
+                    <!-- Chief App Grid Card -->
+                    <div class="app-grid-item" onclick="openAppDetail('chief')">
+                        <img src="https://raw.githubusercontent.com/mrchiefx12-wq/Chief-Hub/refs/heads/main/assets/logo.png" class="grid-app-logo" alt="Chief Logo">
+                        <div class="grid-app-title">Chief</div>
+                        <div class="grid-app-size">16.8 MB</div>
+                    </div>
+
+                    <!-- Abhishek Classes App Grid Card -->
+                    <div class="app-grid-item" onclick="openAppDetail('abhishek')">
+                        <img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/Glossy%20Gold%20Study%20App%20Icon.png?raw=true" class="grid-app-logo" alt="Abhishek Classes Logo">
+                        <div class="grid-app-title">Abhishek Classes</div>
+                        <div class="grid-app-size">14 MB</div>
                     </div>
                 </div>
 
-                <hr class="screenshot-divider">
+                <!-- 1. CHIEF APP DETAIL VIEW -->
+                <div id="detail-chief" class="app-detail-view">
+                    <button class="back-to-home-btn" onclick="backToAppGrid()">← Back to Apps</button>
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/mrchiefx12-wq/Chief-Hub/refs/heads/main/assets/logo.png" class="app-logo" alt="Chief Hub Logo">
+                        <div class="app-info">
+                            <h1 class="app-title">Chief</h1>
+                            <div class="app-developer">Chief Studio International</div>
+                            <div class="meta-grid">
+                                <div class="meta-item"><span class="meta-value" style="color: #ff9800;">4.5 ★</span><span>Rating</span></div>
+                                <div class="meta-item"><span class="meta-value">16.8 MB</span><span>File Size</span></div>
+                                <div class="meta-item"><span class="meta-value secure-badge">Verified</span><span>Security</span></div>
+                                <div class="meta-item"><span class="meta-value">Android 7.0+</span><span>Required OS</span></div>
+                            </div>
+                            <a href="https://github.com/mrchiefx12-wq/Chief-Hub/raw/refs/heads/main/Chief.apk" class="download-btn" target="_blank">📥 Download APK</a>
+                        </div>
+                    </div>
 
-                <div class="screenshot-container">
-                    <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/mrchiefx12-wq/Chief-Hub/refs/heads/main/assets/1st_image.png" alt="Slot 1"></div>
-                    <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/WhatsApp%20Image%202026-06-30%20at%203.17.25%20PM.jpeg?raw=true" alt="Slot 2"></div>
-                    <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/WhatsApp%20Image%202026-06-30%20at%203.17.26%20PM.jpeg?raw=true" alt="Slot 3"></div>
-                    <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/WhatsApp%20Image%202026-06-30%20at%203.17.27%20PM.jpeg?raw=true" alt="Slot 4"></div>
-                    <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/ChatGPT%20Image%20Jun%2030,%202026,%2003_22_01%20PM.png?raw=true" alt="Slot 5"></div>
+                    <hr class="screenshot-divider">
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/mrchiefx12-wq/Chief-Hub/refs/heads/main/assets/1st_image.png" alt="Slot 1"></div>
+                        <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/WhatsApp%20Image%202026-06-30%20at%203.17.25%20PM.jpeg?raw=true" alt="Slot 2"></div>
+                        <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/WhatsApp%20Image%202026-06-30%20at%203.17.26%20PM.jpeg?raw=true" alt="Slot 3"></div>
+                        <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/WhatsApp%20Image%202026-06-30%20at%203.17.27%20PM.jpeg?raw=true" alt="Slot 4"></div>
+                        <div class="screenshot-slot" onclick="openLightbox(this)"><img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/assets/ChatGPT%20Image%20Jun%2030,%202026,%2003_22_01%20PM.png?raw=true" alt="Slot 5"></div>
+                    </div>
+
+                    <div class="description-section">
+                        <h2>About Chief</h2>
+                        <p>The official mobile application by Chief Company is exclusively crafted for premium and luxury watch enthusiasts. This app unlocks state-of-the-art configuration tools, allowing you to design and personalize a completely unique "One-of-One Piece" watch made specifically for your wrist.</p>
+                        <ul>
+                            <li><strong>One-of-One Customization:</strong> Break away from mass-produced designs. Use our in-app real-time 3D configurator to fully customize your watch. Personalize everything from the watch dial and hands down to the high-end straps.</li>
+                            <li><strong>₹200 Monthly Voucher:</strong> All active members of Chief Hub receive a complimentary ₹200 voucher code every single month, which can be effortlessly claimed directly via the built-in Voucher tab.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="description-section">
-                    <h2>About Chief</h2>
-                    <p>The official mobile application by Chief Company is exclusively crafted for premium and luxury watch enthusiasts. This app unlocks state-of-the-art configuration tools, allowing you to design and personalize a completely unique "One-of-One Piece" watch made specifically for your wrist.</p>
-                    <ul>
-                        <li><strong>One-of-One Customization:</strong> Break away from mass-produced designs. Use our in-app real-time 3D configurator to fully customize your watch. Personalize everything from the watch dial and hands down to the high-end straps.</li>
-                        <li><strong>₹200 Monthly Voucher:</strong> All active members of Chief Hub receive a complimentary ₹200 voucher code every single month, which can be effortlessly claimed directly via the built-in Voucher tab.</li>
-                        <li><strong>3-Time Free Repairing:</strong> Keeping true to our luxury service promise, registering through this app entitles you to 3 complimentary watch repair, servicing, and premium maintenance sessions per year.</li>
-                        <li><strong>Digital Verification Safety:</strong> Complete protection against counterfeits. Each custom watch generates a unique cryptographic digital verification certificate that can be instantly scanned within this app to verify 100% authenticity.</li>
-                    </ul>
-                    <h3>Fast & Seamless Interface</h3>
-                    <p>Engineered to be highly optimized and lightweight (only 15 MB), Chief Hub ensures a fluid experience on all devices running Android 7.0 and above. The app is thoroughly scanned, secured, and guaranteed virus-free, as backed by our official security verification badge.</p>
-                    <h3>How to Experience</h3>
-                    <p>Simply click on the "Download APK" button above, install the application, log in using your credentials, and start designing your very first custom luxury timepiece today.</p>
+                <!-- 2. ABHISHEK CLASSES APP DETAIL VIEW -->
+                <div id="detail-abhishek" class="app-detail-view">
+                    <button class="back-to-home-btn" onclick="backToAppGrid()">← Back to Apps</button>
+                    <div class="app-card">
+                        <img src="https://github.com/mrchiefx12-wq/Chief-Hub/blob/main/Glossy%20Gold%20Study%20App%20Icon.png?raw=true" class="app-logo" alt="Abhishek Classes Logo">
+                        <div class="app-info">
+                            <h1 class="app-title">Abhishek Classes</h1>
+                            <div class="app-developer">Chief Education</div>
+                            <div class="meta-grid">
+                                <div class="meta-item"><span class="meta-value" style="color: #ff9800;">4.8 ★</span><span>Rating</span></div>
+                                <div class="meta-item"><span class="meta-value">14 MB</span><span>File Size</span></div>
+                                <div class="meta-item"><span class="meta-value secure-badge">Verified</span><span>Security</span></div>
+                                <div class="meta-item"><span class="meta-value">Android 6.0+</span><span>Required OS</span></div>
+                            </div>
+                            <a href="https://github.com/mrchiefx12-wq/Chief-Hub/raw/refs/heads/main/Abhishek%20Classes.apk" class="download-btn" target="_blank">📥 Download APK</a>
+                        </div>
+                    </div>
+
+                    <hr class="screenshot-divider">
+
+                    <!-- Exactly 5 Screenshot Slots for Abhishek Classes -->
+                    <div class="screenshot-container">
+                        <div class="screenshot-slot" onclick="openLightbox(this)"><span>Screenshot 1<br><small style="color:#888;">(Click to view)</small></span></div>
+                        <div class="screenshot-slot" onclick="openLightbox(this)"><span>Screenshot 2<br><small style="color:#888;">(Click to view)</small></span></div>
+                        <div class="screenshot-slot" onclick="openLightbox(this)"><span>Screenshot 3<br><small style="color:#888;">(Click to view)</small></span></div>
+                        <div class="screenshot-slot" onclick="openLightbox(this)"><span>Screenshot 4<br><small style="color:#888;">(Click to view)</small></span></div>
+                        <div class="screenshot-slot" onclick="openLightbox(this)"><span>Screenshot 5<br><small style="color:#888;">(Click to view)</small></span></div>
+                    </div>
+
+                    <div class="description-section">
+                        <h2>About Abhishek Classes</h2>
+                        <p>Abhishek Classes is an all-in-one educational platform engineered to make online learning interactive, organized, and accessible. Tailored specifically for students seeking comprehensive guidance, class notes, test series, and live lecture integration.</p>
+                        <ul>
+                            <li><strong>Structured Learning Modules:</strong> Gain organized access to subject-wise chapters, reference materials, and downloadable study PDFs.</li>
+                            <li><strong>Interactive Practice Tests:</strong> Test your knowledge with chapter-end quizzes and full-length simulated examinations.</li>
+                            <li><strong>Lightweight Performance:</strong> Optimized to run smoothly at just 14 MB on almost all Android devices with low data usage.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Your Live Adsterra Ad Code Applied Below -->
+                <!-- Live Adsterra Ad Container -->
                 <div class="ad-space">
                     <script>
                         atOptions = {
@@ -327,1153 +428,128 @@
                 </div>
             </div>
 
+            <!-- Support Tab -->
             <div id="content-support" class="tab-content">
                 <div class="fragment-card">
                     <div id="chief-support-fragment">
-
-<style>
-#chief-support-fragment {
-  width: 100%;
-  min-height: 100vh;
-  background: #ffffff;
-  color: #111111;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 55px 6vw 80px;
-  overflow-x: hidden;
-}
-
-#chief-support-fragment * {
-  box-sizing: border-box;
-}
-
-.chief-support-wrapper {
-  width: 100%;
-  max-width: 1250px;
-  margin: auto;
-}
-
-/* HEADER */
-
-.chief-support-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.chief-support-label {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  color: #777777;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-}
-
-.chief-support-header h1 {
-  font-size: clamp(40px, 6vw, 76px);
-  letter-spacing: -2px;
-  line-height: 1.05;
-  margin: 0;
-  font-weight: 800;
-}
-
-.chief-support-header p {
-  max-width: 760px;
-  margin: 22px auto 0;
-  color: #666666;
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-/* INTRO */
-
-.chief-support-intro {
-  padding: 35px;
-  background: #f8f8f8;
-  border-radius: 18px;
-  margin-bottom: 55px;
-}
-
-.chief-support-intro h2 {
-  margin: 0 0 15px;
-  font-size: 28px;
-}
-
-.chief-support-intro p {
-  margin: 0;
-  color: #555555;
-  font-size: 16px;
-  line-height: 1.9;
-}
-
-/* ISSUE LIST */
-
-.chief-issues-title {
-  text-align: center;
-  margin-bottom: 35px;
-}
-
-.chief-issues-title h2 {
-  font-size: 36px;
-  margin: 0 0 12px;
-}
-
-.chief-issues-title p {
-  color: #777777;
-  margin: 0;
-  line-height: 1.7;
-}
-
-.chief-issue-list {
-  border-top: 1px solid #e5e5e5;
-}
-
-/* ISSUE */
-
-.chief-issue {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.chief-issue summary {
-  list-style: none;
-  cursor: pointer;
-  display: grid;
-  grid-template-columns: 55px 1fr 35px;
-  align-items: center;
-  gap: 15px;
-  padding: 25px 12px;
-  transition: background 0.25s ease;
-}
-
-.chief-issue summary::-webkit-details-marker {
-  display: none;
-}
-
-.chief-issue summary:hover {
-  background: #fafafa;
-}
-
-.chief-issue-number {
-  font-size: 12px;
-  color: #999999;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.chief-issue-name {
-  font-size: 16px;
-  font-weight: 700;
-  color: #222222;
-}
-
-.chief-issue-icon {
-  font-size: 25px;
-  color: #777777;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.chief-issue[open] .chief-issue-icon {
-  transform: rotate(45deg);
-}
-
-/* SOLUTION */
-
-.chief-solution {
-  margin: 0 12px 25px 70px;
-  padding: 25px;
-  background: #f8f8f8;
-  border-left: 3px solid #111111;
-  animation: chiefSolutionOpen 0.3s ease;
-}
-
-.chief-solution-title {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.chief-solution p {
-  margin: 0;
-  color: #555555;
-  font-size: 15px;
-  line-height: 1.9;
-}
-
-/* CONTACT */
-
-.chief-support-contact {
-  margin-top: 65px;
-  padding: 55px 30px;
-  background: #111111;
-  color: #ffffff;
-  border-radius: 20px;
-  text-align: center;
-}
-
-.chief-support-contact h2 {
-  margin: 0 0 15px;
-  font-size: 32px;
-}
-
-.chief-support-contact p {
-  max-width: 650px;
-  margin: 0 auto 30px;
-  color: #cccccc;
-  line-height: 1.8;
-}
-
-.chief-support-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #ffffff;
-  color: #111111;
-  text-decoration: none;
-  padding: 16px 32px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 700;
-  transition: 0.25s ease;
-}
-
-.chief-support-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(255,255,255,0.2);
-}
-
-/* FOOTER */
-
-.chief-support-footer {
-  text-align: center;
-  margin-top: 40px;
-  color: #999999;
-  font-size: 12px;
-  letter-spacing: 0.6px;
-}
-
-/* ANIMATION */
-
-@keyframes chiefSolutionOpen {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* MOBILE */
-
-@media (max-width: 700px) {
-
-  #chief-support-fragment {
-    padding: 38px 16px 55px;
-  }
-
-  .chief-support-header {
-    margin-bottom: 40px;
-  }
-
-  .chief-support-header h1 {
-    font-size: 43px;
-    letter-spacing: -1px;
-  }
-
-  .chief-support-header p {
-    font-size: 15px;
-  }
-
-  .chief-support-intro {
-    padding: 25px 20px;
-  }
-
-  .chief-support-intro h2 {
-    font-size: 24px;
-  }
-
-  .chief-support-intro p {
-    font-size: 14px;
-  }
-
-  .chief-issues-title h2 {
-    font-size: 29px;
-  }
-
-  .chief-issue summary {
-    grid-template-columns: 38px 1fr 25px;
-    gap: 10px;
-    padding: 21px 5px;
-  }
-
-  .chief-issue-name {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .chief-solution {
-    margin-left: 48px;
-    padding: 19px;
-  }
-
-  .chief-solution p {
-    font-size: 14px;
-  }
-
-  .chief-support-contact {
-    padding: 38px 20px;
-  }
-
-  .chief-support-contact h2 {
-    font-size: 26px;
-  }
-
-  .chief-support-button {
-    width: 100%;
-  }
-}
-</style>
-
-
-<div class="chief-support-wrapper">
-
-
-  <div class="chief-support-header">
-
-    <div class="chief-support-label">
-      CHIEF SUPPORT CENTER
-    </div>
-
-    <h1>
-      SUPPORT
-    </h1>
-
-    <p>
-      Find answers to common questions and problems related to your CHIEF
-      account, rewards, C Coins, referrals, vouchers, verification, orders,
-      payments, and application experience.
-    </p>
-
-  </div>
-
-
-  <div class="chief-support-intro">
-
-    <h2>
-      Find Your Solution
-    </h2>
-
-    <p>
-      We understand that sometimes you may face an unexpected problem while
-      using CHIEF. To make things easier, we have listed some of the most common
-      issues users may experience. Select the problem that matches your
-      situation to view a simple solution and helpful guidance.
-    </p>
-
-  </div>
-
-
-  <div class="chief-issues-title">
-
-    <h2>
-      Common Issues
-    </h2>
-
-    <p>
-      Click on any issue below to view its solution.
-    </p>
-
-  </div>
-
-
-  <div class="chief-issue-list">
-
-
-    <details class="chief-issue">
-
-      <summary>
-        <span class="chief-issue-number">01</span>
-        <span class="chief-issue-name">
-          I cannot create or access my CHIEF account
-        </span>
-        <span class="chief-issue-icon">+</span>
-      </summary>
-
-      <div class="chief-solution">
-
-        <div class="chief-solution-title">
-          Solution
-        </div>
-
-        <p>
-          First, check that your internet connection is working correctly and
-          make sure all account information has been entered accurately. If you
-          are unable to log in, check your email and password carefully. Avoid
-          creating multiple accounts for the same issue. If you still cannot
-          access your account, contact CHIEF Support and explain the exact
-          problem you are experiencing.
-        </p>
-
-      </div>
-
-    </details>
-
-
-    <details class="chief-issue">
-
-      <summary>
-        <span class="chief-issue-number">02</span>
-        <span class="chief-issue-name">
-          I forgot my password or cannot sign in
-        </span>
-        <span class="chief-issue-icon">+</span>
-      </summary>
-
-      <div class="chief-solution">
-
-        <div class="chief-solution-title">
-          Solution
-        </div>
-
-        <p>
-          Check that your email address and password are entered correctly and
-          that there are no unnecessary spaces. If a password recovery option
-          is available, use it to restore access to your account. Never share
-          your password with anyone. If you are still unable to sign in,
-          contact CHIEF Support for further assistance.
-        </p>
-
-      </div>
-
-    </details>
-
-
-    <details class="chief-issue">
-
-      <summary>
-        <span class="chief-issue-number">03</span>
-        <span class="chief-issue-name">
-          My product verification code is not working
-        </span>
-        <span class="chief-issue-icon">+</span>
-      </summary>
-
-      <div class="chief-solution">
-
-        <div class="chief-solution-title">
-          Solution
-        </div>
-
-        <p>
-          Carefully check every character of your verification code. Make sure
-          there are no extra spaces or typing mistakes. Enter the code exactly
-          as provided. If the code is still not accepted, do not repeatedly
-          enter random information. Contact CHIEF Support with the relevant
-          details so the issue can be reviewed.
-        </p>
-
-      </div>
-
-    </details>
-
-
-    <details class="chief-issue">
-
-      <summary>
-        <span class="chief-issue-number">04</span>
-        <span class="chief-issue-name">
-          My daily reward has not appeared
-        </span>
-        <span class="chief-issue-icon">+</span>
-      </summary>
-
-      <div class="chief-solution">
-
-        <div class="chief-solution-title">
-          Solution
-        </div>
-
-        <p>
-          Refresh the application or page and check again after a short time.
-          Some rewards may require processing before they appear in your
-          account. Avoid repeatedly claiming the same reward. If the reward
-          remains missing after the required time, contact CHIEF Support and
-          explain when and how you completed the activity.
-        </p>
-
-      </div>
-
-    </details>
-
-
-    <details class="chief-issue">
-
-      <summary>
-        <span class="chief-issue-number">05</span>
-        <span class="chief-issue-name">
-          My C Coins or reward balance is incorrect
-        </span>
-        <span class="chief-issue-icon">+</span>
-      </summary>
-
-      <div class="chief-solution">
-
-        <div class="chief-solution-title">
-          Solution
-        </div>
-
-        <p>
-          First, refresh your account and allow the system a short time to
-          update your balance. Check whether the activity was successfully
-          completed. If your balance still appears incorrect, contact support
-          and provide a clear description of the activity and the issue you
-          noticed. Do not repeatedly perform the same action.
-        </p>
-
-      </div>
-
-    </details>
-
-
-    <details class="chief-issue">
-
-      <summary>
-        <span class="chief-issue-number">06</span>
-        <span class="chief-issue-name">
-          My referral reward has not been added
-        </span>
-        <span class="chief-issue-icon">+</span>
-      </summary>
-
-      <div class="chief-solution">
-
-        <div class="chief-solution-title">
-          Solution
-        </div>
-
-        <p>
-          Referral rewards may depend on the referred user completing the
-          required steps. Check that the referral process was completed
-          correctly. If all required conditions were completed but the reward
-          is still missing, contact CHIEF Support so the referral can be
-          reviewed.
-        </p>
-
-      </div>
-
-    </details>
-
-
-    <details class="chief-issue">
-
-      <summary>
-        <span class="chief-issue-number">07</span>
-        <span class="chief-issue-name">
-          Reward ads are not loading or not giving rewards
-        </span>
-        <span class="chief-issue-icon">+</span>
-      </summary>
-
-      <div class="chief-solution">
-
-        <div class="chief-solution-title">
-          Solution
-        </div>
-
-        <p>
-          Check your internet connection and try again after a short time.
-          Advertisement availability can sometimes vary depending on the
-          current network or ad availability. Do not repeatedly click the
-          reward option. If the issue continues, contact CHIEF Support and
-          mention what happened.
-        </p>
-
-      </div>
-
-    </details>
-
-
-    <details class="chief-issue">
-
-      <summary>
-        <span class="chief-issue-number">08</span>
-        <span class="chief-issue-name">
-          My voucher is not working or cannot be used
-        </span>
-        <span class="chief-issue-icon">+</span>
-      </summary>
-
-      <div class="chief-solution">
-
-        <div class="chief-solution-title">
-          Solution
-        </div>
-
-        <p>
-          Check that the voucher information has been entered correctly and
-          confirm that the voucher is valid for the intended use. Keep your
-          voucher information private and do not share it publicly. If the
-          voucher should be working but is not accepted, contact CHIEF Support
-          with the relevant information.
-        </p>
-
-      </div>
-
-    </details>
-
-
-    <details class="chief-issue">
-
-      <summary>
-        <span class="chief-issue-number">09</span>
-        <span class="chief-issue-name">
-          My order or custom request has not been updated
-        </span>
-        <span class="chief-issue-icon">+</span>
-      </summary>
-
-      <div class="chief-solution">
-
-        <div class="chief-solution-title">
-          Solution
-        </div>
-
-        <p>
-          Some orders and requests may require time for review and processing.
-          Please allow reasonable time for your request to be handled. If you
-          have waited and still have no update, contact CHIEF Support with your
-          order or request information so the team can assist you.
-        </p>
-
-      </div>
-
-    </details>
-
-
-    <details class="chief-issue">
-
-      <summary>
-        <span class="chief-issue-number">10</span>
-        <span class="chief-issue-name">
-          A page, feature, or button is not working
-        </span>
-        <span class="chief-issue-icon">+</span>
-      </summary>
-
-      <div class="chief-solution">
-
-        <div class="chief-solution-title">
-          Solution
-        </div>
-
-        <p>
-          Check your internet connection first. Refresh the page or completely
-          close and reopen the application. If the feature still does not work,
-          try again after a short time. When contacting support, mention the
-          exact page, feature, or button that is causing the problem.
-        </p>
-
-      </div>
-
-    </details>
-
-
-    <details class="chief-issue">
-
-      <summary>
-        <span class="chief-issue-number">11</span>
-        <span class="chief-issue-name">
-          The application or WebView is showing a blank screen
-        </span>
-        <span class="chief-issue-icon">+</span>
-      </summary>
-
-      <div class="chief-solution">
-
-        <div class="chief-solution-title">
-          Solution
-        </div>
-
-        <p>
-          Check your internet connection and restart the application. If the
-          problem continues, close the app completely and open it again. Make
-          sure your device has a stable connection. If the blank screen remains,
-          contact CHIEF Support and mention which page was showing the issue.
-        </p>
-
-      </div>
-
-    </details>
-
-
-    <details class="chief-issue">
-
-      <summary>
-        <span class="chief-issue-number">12</span>
-        <span class="chief-issue-name">
-          My payment or purchase-related issue needs assistance
-        </span>
-        <span class="chief-issue-icon">+</span>
-      </summary>
-
-      <div class="chief-solution">
-
-        <div class="chief-solution-title">
-          Solution
-        </div>
-
-        <p>
-          Do not repeat a payment immediately if you are unsure whether the
-          first attempt was successful. Check your transaction information and
-          contact CHIEF Support with the relevant details. Never share your
-          password or sensitive security information with anyone.
-        </p>
-
-      </div>
-
-    </details>
-
-
-    <details class="chief-issue">
-
-      <summary>
-        <span class="chief-issue-number">13</span>
-        <span class="chief-issue-name">
-          I believe there is incorrect information in my account
-        </span>
-        <span class="chief-issue-icon">+</span>
-      </summary>
-
-      <div class="chief-solution">
-
-        <div class="chief-solution-title">
-          Solution
-        </div>
-
-        <p>
-          Do not create another account or repeatedly change information while
-          trying to fix the problem. Note exactly what appears incorrect and
-          contact CHIEF Support with a clear explanation. Our support team can
-          review the issue and guide you through the next steps.
-        </p>
-
-      </div>
-
-    </details>
-
-
-    <details class="chief-issue">
-
-      <summary>
-        <span class="chief-issue-number">14</span>
-        <span class="chief-issue-name">
-          I think there may be a security issue with my account
-        </span>
-        <span class="chief-issue-icon">+</span>
-      </summary>
-
-      <div class="chief-solution">
-
-        <div class="chief-solution-title">
-          Solution
-        </div>
-
-        <p>
-          Keep your password and private account information confidential.
-          Do not share login details with anyone. If you notice unusual account
-          activity or believe your account may be at risk, contact CHIEF Support
-          immediately and explain the situation clearly.
-        </p>
-
-      </div>
-
-    </details>
-
-
-    <details class="chief-issue">
-
-      <summary>
-        <span class="chief-issue-number">15</span>
-        <span class="chief-issue-name">
-          My problem is not listed here
-        </span>
-        <span class="chief-issue-icon">+</span>
-      </summary>
-
-      <div class="chief-solution">
-
-        <div class="chief-solution-title">
-          Solution
-        </div>
-
-        <p>
-          No problem. Every possible issue cannot be listed in one support
-          center. Use the Contact CHIEF Support button below and explain your
-          problem clearly. Tell us which feature you were using, what you
-          expected to happen, and what actually happened. This helps our team
-          understand your request and provide better assistance.
-        </p>
-
-      </div>
-
-    </details>
-
-
-  </div>
-
-
-  <div class="chief-support-contact">
-
-    <h2>
-      Still Need Help?
-    </h2>
-
-    <p>
-      If you could not find the solution to your problem above, our support
-      team is ready to assist you. Send us a clear message describing your
-      issue and we will review your request.
-    </p>
-
-    <a
-      class="chief-support-button"
-      href="mailto:mrchiefx12@gmail.com?subject=CHIEF%20Support%20Request&body=Hello%20CHIEF%20Support%2C%0A%0AI%20need%20help%20with%3A%0A%0A%0AAdditional%20details%3A%0A%0A%0AThank%20you."
-    >
-      ✉ Contact CHIEF Support
-    </a>
-
-  </div>
-
-
-  <div class="chief-support-footer">
-    CHIEF • Support Center
-  </div>
-
-
-</div>
-
-</div>
-                </div>
-            </div>
-            
-            <div id="content-help" class="tab-content">
-                <div class="fragment-card">
-                    <div id="chief-help-page">
-
-  <style>
-    #chief-help-page {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #ffffff;
-      color: #111111;
-      width: 100%;
-      min-height: 100vh;
-      box-sizing: border-box;
-      padding: 45px 22px 55px;
-    }
-
-    #chief-help-page * {
-      box-sizing: border-box;
-    }
-
-    .chief-help-wrapper {
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .chief-help-header {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .chief-help-label {
-      font-size: 12px;
-      letter-spacing: 3px;
-      font-weight: 700;
-      color: #777;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    .chief-help-title {
-      font-size: clamp(32px, 6vw, 58px);
-      font-weight: 800;
-      letter-spacing: -1.5px;
-      margin: 0;
-      line-height: 1.1;
-    }
-
-    .chief-help-subtitle {
-      max-width: 650px;
-      margin: 18px auto 0;
-      color: #666;
-      font-size: 16px;
-      line-height: 1.7;
-    }
-
-    .chief-help-card {
-      border: 1px solid #e5e5e5;
-      border-radius: 18px;
-      padding: clamp(25px, 5vw, 48px);
-      background: #ffffff;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.05);
-    }
-
-    .chief-help-card h2 {
-      font-size: 26px;
-      margin: 0 0 18px;
-      letter-spacing: -0.5px;
-    }
-
-    .chief-help-card p {
-      font-size: 15px;
-      color: #555;
-      line-height: 1.85;
-      margin: 0 0 20px;
-    }
-
-    .chief-help-section {
-      padding: 25px 0;
-      border-bottom: 1px solid #eeeeee;
-    }
-
-    .chief-help-section:last-of-type {
-      border-bottom: none;
-    }
-
-    .chief-help-section h3 {
-      font-size: 18px;
-      margin: 0 0 10px;
-      font-weight: 700;
-    }
-
-    .chief-help-section p {
-      margin-bottom: 0;
-    }
-
-    .chief-help-contact {
-      margin-top: 35px;
-      padding: 30px 25px;
-      background: #111111;
-      border-radius: 16px;
-      text-align: center;
-      color: white;
-    }
-
-    .chief-help-contact h2 {
-      color: white;
-      margin-bottom: 10px;
-    }
-
-    .chief-help-contact p {
-      color: #cfcfcf;
-      margin-bottom: 22px;
-      line-height: 1.7;
-    }
-
-    .chief-contact-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 15px 25px;
-      border-radius: 8px;
-      background: white;
-      color: #111111;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      transition: all 0.25s ease;
-    }
-
-    .chief-contact-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(255,255,255,0.15);
-    }
-
-    .chief-help-footer {
-      text-align: center;
-      margin-top: 35px;
-      font-size: 12px;
-      color: #999;
-      letter-spacing: 0.5px;
-    }
-
-    @media (max-width: 600px) {
-      #chief-help-page {
-        padding: 30px 15px 40px;
-      }
-
-      .chief-help-card {
-        padding: 24px 20px;
-        border-radius: 14px;
-      }
-
-      .chief-help-card p {
-        font-size: 14px;
-        line-height: 1.8;
-      }
-
-      .chief-help-contact {
-        padding: 25px 18px;
-      }
-
-      .chief-contact-button {
-        width: 100%;
-      }
-    }
-  </style>
-
-  <div class="chief-help-wrapper">
-
-    <div class="chief-help-header">
-      <div class="chief-help-label">CHIEF SUPPORT</div>
-
-      <h1 class="chief-help-title">How Can We Help?</h1>
-
-      <p class="chief-help-subtitle">
-        Welcome to the CHIEF Help & Support Center. Find useful information,
-        guidance, and assistance for your account, rewards, verification,
-        vouchers, orders, and other services.
-      </p>
-    </div>
-
-    <div class="chief-help-card">
-
-      <h2>Help & Support</h2>
-
-      <p>
-        At CHIEF, we aim to provide a smooth, reliable, and premium experience
-        for every user. Whether you are using our application, verifying a
-        CHIEF product, managing your account, participating in rewards, or
-        using any of our available services, this help section is designed to
-        guide you through the most common questions and situations.
-      </p>
-
-      <div class="chief-help-section">
-        <h3>Account & Login</h3>
-
-        <p>
-          If you are having trouble signing in, creating an account, accessing
-          your profile, or using any account-related feature, please first make
-          sure that the information you have entered is correct. If the issue
-          continues, avoid creating multiple accounts for the same problem and
-          contact our support team so that we can review your request properly.
-        </p>
-      </div>
-
-      <div class="chief-help-section">
-        <h3>Product Verification</h3>
-
-        <p>
-          CHIEF product verification features are designed to help users check
-          the authenticity and registered details of eligible products. Please
-          enter your verification information carefully and exactly as provided.
-          If your verification code is not working, is showing an unexpected
-          result, or you believe there may be an issue with your product
-          information, please contact CHIEF Support for further assistance.
-        </p>
-      </div>
-
-      <div class="chief-help-section">
-        <h3>Rewards & C Coins</h3>
-
-        <p>
-          If you are using reward features, daily rewards, referral rewards, or
-          other available earning options, please allow a short amount of time
-          for the system to process your activity. In case a reward does not
-          appear correctly, please do not repeatedly perform the same action.
-          Instead, contact our support team with the relevant details so the
-          issue can be checked properly.
-        </p>
-      </div>
-
-      <div class="chief-help-section">
-        <h3>Vouchers & Benefits</h3>
-
-        <p>
-          If you have purchased or received a CHIEF voucher and experience any
-          difficulty while checking its status, balance, validity, or usage,
-          please keep your voucher information safe and contact us with the
-          necessary details. For your security, never share sensitive account
-          passwords or private login information with anyone.
-        </p>
-      </div>
-
-      <div class="chief-help-section">
-        <h3>Orders & Services</h3>
-
-        <p>
-          For questions related to product orders, custom requests, service
-          availability, order status, or any other CHIEF service, please provide
-          as much relevant information as possible when contacting us. This helps
-          our team understand your request and provide a faster and more accurate
-          response.
-        </p>
-      </div>
-
-      <div class="chief-help-section">
-        <h3>Technical Problems</h3>
-
-        <p>
-          If a feature is not loading correctly, a page is not working, a
-          button is not responding, or you encounter an unexpected error, try
-          refreshing the page or reopening the application first. If the issue
-          continues, please contact us and explain what happened, which feature
-          you were using, and any relevant information that may help us
-          investigate the problem.
-        </p>
-      </div>
-
-      <div class="chief-help-section">
-        <h3>Before Contacting Support</h3>
-
-        <p>
-          To help us assist you efficiently, please include a clear description
-          of your issue in your message. If relevant, mention the feature or
-          service you were using and explain what happened. Please do not send
-          your password or other highly sensitive private information. Our team
-          will review your request and respond as soon as possible.
-        </p>
-      </div>
-
-      <div class="chief-help-contact">
-
-        <h2>For Any Issue, Contact Us</h2>
-
-        <p>
-          Could not find the answer you were looking for?
-          Our support team is here to help.
-        </p>
-
-        <a
-          class="chief-contact-button"
-          href="mailto:mrchiefx12@gmail.com?subject=CHIEF%20Support%20Request&body=Hello%20CHIEF%20Support%2C%0A%0AI%20need%20help%20with%3A%0A%0A%0AAdditional%20details%3A%0A%0A%0AThank%20you."
-        >
-          ✉ Contact CHIEF Support
-        </a>
-
-      </div>
-
-    </div>
-
-    <div class="chief-help-footer">
-      CHIEF • Help & Support Center
-    </div>
-
-  </div>
-
-</div>
-                        
+                        <style>
+                        #chief-support-fragment { width: 100%; min-height: 100vh; background: #ffffff; color: #111111; font-family: Arial, Helvetica, sans-serif; padding: 55px 6vw 80px; overflow-x: hidden; }
+                        #chief-support-fragment * { box-sizing: border-box; }
+                        .chief-support-wrapper { width: 100%; max-width: 1250px; margin: auto; }
+                        .chief-support-header { text-align: center; margin-bottom: 60px; }
+                        .chief-support-label { font-size: 12px; font-weight: 700; letter-spacing: 4px; color: #777777; text-transform: uppercase; margin-bottom: 18px; }
+                        .chief-support-header h1 { font-size: clamp(40px, 6vw, 76px); letter-spacing: -2px; line-height: 1.05; margin: 0; font-weight: 800; }
+                        .chief-support-header p { max-width: 760px; margin: 22px auto 0; color: #666666; font-size: 17px; line-height: 1.8; }
+                        .chief-support-intro { padding: 35px; background: #f8f8f8; border-radius: 18px; margin-bottom: 55px; }
+                        .chief-support-intro h2 { margin: 0 0 15px; font-size: 28px; }
+                        .chief-support-intro p { margin: 0; color: #555555; font-size: 16px; line-height: 1.9; }
+                        .chief-issues-title { text-align: center; margin-bottom: 35px; }
+                        .chief-issues-title h2 { font-size: 36px; margin: 0 0 12px; }
+                        .chief-issues-title p { color: #777777; margin: 0; line-height: 1.7; }
+                        .chief-issue-list { border-top: 1px solid #e5e5e5; }
+                        .chief-issue { border-bottom: 1px solid #e5e5e5; }
+                        .chief-issue summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 55px 1fr 35px; align-items: center; gap: 15px; padding: 25px 12px; transition: background 0.25s ease; }
+                        .chief-issue summary::-webkit-details-marker { display: none; }
+                        .chief-issue summary:hover { background: #fafafa; }
+                        .chief-issue-number { font-size: 12px; color: #999999; font-weight: 700; letter-spacing: 1px; }
+                        .chief-issue-name { font-size: 16px; font-weight: 700; color: #222222; }
+                        .chief-issue-icon { font-size: 25px; color: #777777; text-align: center; transition: transform 0.3s ease; }
+                        .chief-issue[open] .chief-issue-icon { transform: rotate(45deg); }
+                        .chief-solution { margin: 0 12px 25px 70px; padding: 25px; background: #f8f8f8; border-left: 3px solid #111111; animation: chiefSolutionOpen 0.3s ease; }
+                        .chief-solution-title { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+                        .chief-solution p { margin: 0; color: #555555; font-size: 15px; line-height: 1.9; }
+                        .chief-support-contact { margin-top: 65px; padding: 55px 30px; background: #111111; color: #ffffff; border-radius: 20px; text-align: center; }
+                        .chief-support-contact h2 { margin: 0 0 15px; font-size: 32px; }
+                        .chief-support-contact p { max-width: 650px; margin: 0 auto 30px; color: #cccccc; line-height: 1.8; }
+                        .chief-support-button { display: inline-flex; align-items: center; justify-content: center; background: #ffffff; color: #111111; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-size: 14px; font-weight: 700; transition: 0.25s ease; }
+                        .chief-support-button:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255,255,255,0.2); }
+                        .chief-support-footer { text-align: center; margin-top: 40px; color: #999999; font-size: 12px; letter-spacing: 0.6px; }
+                        </style>
+                        <div class="chief-support-wrapper">
+                          <div class="chief-support-header">
+                            <div class="chief-support-label">CHIEF SUPPORT CENTER</div>
+                            <h1>SUPPORT</h1>
+                            <p>Find answers to common questions and problems related to your CHIEF account, rewards, C Coins, referrals, vouchers, verification, orders, payments, and application experience.</p>
+                          </div>
+                          <div class="chief-support-intro">
+                            <h2>Find Your Solution</h2>
+                            <p>We understand that sometimes you may face an unexpected problem while using CHIEF. To make things easier, we have listed some of the most common issues users may experience.</p>
+                          </div>
+                          <div class="chief-issues-title">
+                            <h2>Common Issues</h2>
+                            <p>Click on any issue below to view its solution.</p>
+                          </div>
+                          <div class="chief-issue-list">
+                            <details class="chief-issue">
+                              <summary>
+                                <span class="chief-issue-number">01</span>
+                                <span class="chief-issue-name">I cannot create or access my CHIEF account</span>
+                                <span class="chief-issue-icon">+</span>
+                              </summary>
+                              <div class="chief-solution">
+                                <div class="chief-solution-title">Solution</div>
+                                <p>First, check that your internet connection is working correctly and make sure all account information has been entered accurately.</p>
+                              </div>
+                            </details>
+                          </div>
+                          <div class="chief-support-contact">
+                            <h2>Still Need Help?</h2>
+                            <p>If you could not find the solution to your problem above, our support team is ready to assist you.</p>
+                            <a class="chief-support-button" href="mailto:mrchiefx12@gmail.com?subject=CHIEF%20Support%20Request">✉ Contact CHIEF Support</a>
+                          </div>
+                          <div class="chief-support-footer">CHIEF • Support Center</div>
+                        </div>
                     </div>
                 </div>
             </div>
+            
+            <!-- Help Tab -->
+            <div id="content-help" class="tab-content">
+                <div class="fragment-card">
+                    <div id="chief-help-page">
+                        <style>
+                        #chief-help-page { font-family: Arial, Helvetica, sans-serif; background: #ffffff; color: #111111; width: 100%; min-height: 100vh; box-sizing: border-box; padding: 45px 22px 55px; }
+                        #chief-help-page * { box-sizing: border-box; }
+                        .chief-help-wrapper { max-width: 900px; margin: auto; }
+                        .chief-help-header { text-align: center; margin-bottom: 45px; }
+                        .chief-help-label { font-size: 12px; letter-spacing: 3px; font-weight: 700; color: #777; text-transform: uppercase; margin-bottom: 14px; }
+                        .chief-help-title { font-size: clamp(32px, 6vw, 58px); font-weight: 800; letter-spacing: -1.5px; margin: 0; line-height: 1.1; }
+                        .chief-help-subtitle { max-width: 650px; margin: 18px auto 0; color: #666; font-size: 16px; line-height: 1.7; }
+                        .chief-help-card { border: 1px solid #e5e5e5; border-radius: 18px; padding: clamp(25px, 5vw, 48px); background: #ffffff; box-shadow: 0 10px 35px rgba(0,0,0,0.05); }
+                        .chief-help-card h2 { font-size: 26px; margin: 0 0 18px; letter-spacing: -0.5px; }
+                        .chief-help-card p { font-size: 15px; color: #555; line-height: 1.85; margin: 0 0 20px; }
+                        .chief-help-contact { margin-top: 35px; padding: 30px 25px; background: #111111; border-radius: 16px; text-align: center; color: white; }
+                        .chief-help-contact h2 { color: white; margin-bottom: 10px; }
+                        .chief-help-contact p { color: #cfcfcf; margin-bottom: 22px; line-height: 1.7; }
+                        .chief-contact-button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 25px; border-radius: 8px; background: white; color: #111111; text-decoration: none; font-size: 14px; font-weight: 700; letter-spacing: 0.3px; transition: all 0.25s ease; }
+                        .chief-contact-button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,255,255,0.15); }
+                        .chief-help-footer { text-align: center; margin-top: 35px; font-size: 12px; color: #999; letter-spacing: 0.5px; }
+                        </style>
+                        <div class="chief-help-wrapper">
+                            <div class="chief-help-header">
+                                <div class="chief-help-label">CHIEF SUPPORT</div>
+                                <h1 class="chief-help-title">How Can We Help?</h1>
+                                <p class="chief-help-subtitle">Welcome to the CHIEF Help & Support Center.</p>
+                            </div>
+                            <div class="chief-help-card">
+                                <h2>Help & Support</h2>
+                                <p>At CHIEF, we aim to provide a smooth, reliable, and premium experience for every user.</p>
+                                <div class="chief-help-contact">
+                                    <h2>For Any Issue, Contact Us</h2>
+                                    <p>Our support team is here to help.</p>
+                                    <a class="chief-contact-button" href="mailto:mrchiefx12@gmail.com?subject=CHIEF%20Support%20Request">✉ Contact CHIEF Support</a>
+                                </div>
+                            </div>
+                            <div class="chief-help-footer">CHIEF • Help & Support Center</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
+    <!-- Lightbox Modal for Screenshots -->
     <div id="playstore-lightbox" class="playstore-lightbox" onclick="closeLightbox()">
         <img id="lightbox-img" class="playstore-lightbox-content" src="" alt="Preview">
     </div>
@@ -1504,15 +580,31 @@
             document.getElementById('content-' + tabName).classList.add('active'); 
             
             document.getElementById('nav-menu-wrapper').classList.remove('open');
+            backToAppGrid();
+        }
+
+        // Play Store style grid navigation functions
+        function openAppDetail(appName) {
+            document.getElementById('app-grid-view').style.display = 'none';
+            document.querySelectorAll('.app-detail-view').forEach(view => view.classList.remove('active'));
+            document.getElementById('detail-' + appName).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function backToAppGrid() {
+            document.querySelectorAll('.app-detail-view').forEach(view => view.classList.remove('active'));
+            document.getElementById('app-grid-view').style.display = 'grid';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function openLightbox(element) {
-            const imgSrc = element.querySelector('img').src;
-            const lightbox = document.getElementById('playstore-lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            
-            lightboxImg.src = imgSrc;
-            lightbox.classList.add('open');
+            const img = element.querySelector('img');
+            if (img && img.src) {
+                const lightbox = document.getElementById('playstore-lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                lightboxImg.src = img.src;
+                lightbox.classList.add('open');
+            }
         }
 
         function closeLightbox() {
